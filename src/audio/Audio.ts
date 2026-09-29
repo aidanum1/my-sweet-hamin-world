@@ -117,10 +117,25 @@ export class AudioSystem {
   private wantTrack: TrackId = 'none';
   private wantAmb: string | null = null;
 
-  /** Call from a user gesture. */
+  /** Sound must never break the game: report once, keep going silently. */
+  private failed = new Set<string>();
+  private fail(e: unknown) {
+    const m = e instanceof Error ? e.message : String(e);
+    if (!this.failed.has(m)) { this.failed.add(m); console.warn('audio error', e); }
+  }
+
+  /**
+   * Call from a user gesture. iPhone only starts / resumes Web Audio inside a finished tap (touchend / click), and
+   * mutes it with the silent switch unless the page asks for "playback" audio.
+   */
   unlock() {
+    try {
+      const session = (navigator as any).audioSession;
+      if (session && session.type !== 'playback') session.type = 'playback'; // Safari 17+: play through the silent switch
+    } catch { /* not supported */ }
     if (this.ctx) {
-      if (this.ctx.state === 'suspended') this.ctx.resume();
+      if (this.ctx.state !== 'running') this.ctx.resume().catch(() => {}); // 'suspended' or iOS 'interrupted'
+      this.primeIosSession();
       return;
     }
     const AC = window.AudioContext || (window as any).webkitAudioContext;
@@ -151,6 +166,28 @@ export class AudioSystem {
     });
     if (this.wantTrack !== 'none') this.playMusic(this.wantTrack, true);
     if (this.wantAmb) this.ambience(this.wantAmb);
+    this.primeIosSession();
+  }
+
+  /** Older iOS (no navigator.audioSession): a silent looping <audio> started in the gesture switches the page to
+   *  the "playback" audio session, so Web Audio is heard even with the silent switch on. */
+  private primed = false;
+  private primeIosSession() {
+    const ios = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (this.primed || !ios || (navigator as any).audioSession) return;
+    this.primed = true; // retried below if iOS refuses (e.g. called from a touch-down, which isn't a full gesture)
+    try {
+      const n = 800, buf = new ArrayBuffer(44 + n), v = new DataView(buf);
+      const str = (o: number, t: string) => { for (let i = 0; i < t.length; i++) v.setUint8(o + i, t.charCodeAt(i)); };
+      str(0, 'RIFF'); v.setUint32(4, 36 + n, true); str(8, 'WAVE'); str(12, 'fmt ');
+      v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true); v.setUint32(24, 8000, true);
+      v.setUint32(28, 8000, true); v.setUint16(32, 1, true); v.setUint16(34, 8, true); str(36, 'data'); v.setUint32(40, n, true);
+      for (let i = 0; i < n; i++) v.setUint8(44 + i, 128); // 8-bit silence
+      const el = new Audio(URL.createObjectURL(new Blob([buf], { type: 'audio/wav' })));
+      el.loop = true;
+      el.setAttribute('playsinline', '');
+      el.play().catch(() => { this.primed = false; });
+    } catch { this.primed = false; }
   }
 
   setVolumes(v: { master: number; music: number; sfx: number; muted: boolean }) {
@@ -168,6 +205,9 @@ export class AudioSystem {
   get currentTrack() { return this.trackId; }
 
   playMusic(id: TrackId, force = false) {
+    try { this.playMusicImpl(id, force); } catch (e) { this.fail(e); }
+  }
+  private playMusicImpl(id: TrackId, force = false) {
     this.wantTrack = id;
     if (!this.ctx) return;
     if (id === this.trackId && !force) return;
@@ -198,6 +238,9 @@ export class AudioSystem {
   now() { return this.ctx?.currentTime ?? performance.now() / 1000; }
 
   private schedule() {
+    try { this.scheduleImpl(); } catch (e) { this.fail(e); }
+  }
+  private scheduleImpl() {
     const c = this.ctx;
     const tr = this.track;
     if (!c || !tr) return;
@@ -367,6 +410,9 @@ export class AudioSystem {
 
   // ---------- SFX ----------
   sfx(id: SfxId, vol = 1) {
+    try { this.sfxImpl(id, vol); } catch (e) { this.fail(e); }
+  }
+  private sfxImpl(id: SfxId, vol = 1) {
     const c = this.ctx;
     if (!c) return;
     const t = c.currentTime + 0.005;
@@ -430,6 +476,9 @@ export class AudioSystem {
 
   /** Looping ambience: 'waves' | 'crowd' | 'train' | null */
   ambience(kind: string | null) {
+    try { this.ambienceImpl(kind); } catch (e) { this.fail(e); }
+  }
+  private ambienceImpl(kind: string | null) {
     this.wantAmb = kind;
     const c = this.ctx;
     if (!c) return;

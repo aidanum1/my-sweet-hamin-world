@@ -43,8 +43,10 @@ export class Input extends Emitter<InputEvents> {
   joystickEnabled = true;
   swipeCam = true;
   private keys = new Set<string>();
-  private joy = { id: -1, ox: 0, oy: 0, x: 0, y: 0 };
-  private cam = { id: -1, x: 0, y: 0 };
+  // null = no finger. (Not -1: iOS WebKit hands out huge touch identifiers that can wrap negative, which made an
+  // "id >= 0" check treat the joystick finger as absent — the knob showed but Hamin never walked.)
+  private joy: { id: number | null; ox: number; oy: number; x: number; y: number } = { id: null, ox: 0, oy: 0, x: 0, y: 0 };
+  private cam: { id: number | null; x: number; y: number } = { id: null, x: 0, y: 0 };
   /** live positions of pointers that started on the game surface (for pinch) */
   private pts = new Map<number, { x: number; y: number }>();
   private pinch: { a: number; b: number; d: number } | null = null;
@@ -140,29 +142,29 @@ export class Input extends Emitter<InputEvents> {
       const moved = s0 ? Math.hypot(p0.x - s0.x, p0.y - s0.y) : 99;
       if ((s0 && now - s0.t < 300 && moved < 14) || id0 === this.cam.id) {
         if (id0 === this.joy.id) this.releaseJoy();
-        this.cam = { id: -1, x: 0, y: 0 };
+        this.cam = { id: null, x: 0, y: 0 };
         this.pts.set(e.id, { x: e.x, y: e.y });
         this.pinch = { a: id0, b: e.id, d: Math.hypot(e.x - p0.x, e.y - p0.y) };
         return;
       }
     }
     if (e.type !== 'mouse') this.pts.set(e.id, { x: e.x, y: e.y });
-    if (this.joystickEnabled && e.x < w * 0.5 && this.joy.id < 0 && e.type !== 'mouse') {
+    if (this.joystickEnabled && e.x < w * 0.5 && this.joy.id === null && e.type !== 'mouse') {
       this.joy = { id: e.id, ox: e.x, oy: e.y, x: 0, y: 0 };
       this.joyEl.style.left = e.x + 'px';
       this.joyEl.style.top = e.y + 'px';
       this.joyEl.classList.add('on');
       this.knobEl.style.transform = 'translate(-50%,-50%)';
-    } else if (this.joystickEnabled && e.type === 'mouse' && e.button === 0 && e.x < w * 0.5 && this.joy.id < 0 && e.shift) {
+    } else if (this.joystickEnabled && e.type === 'mouse' && e.button === 0 && e.x < w * 0.5 && this.joy.id === null && e.shift) {
       // desktop mouse can also drive the joystick with shift-drag (debug/accessibility)
       this.joy = { id: e.id, ox: e.x, oy: e.y, x: 0, y: 0 };
-    } else if (this.swipeCam && this.cam.id < 0) {
+    } else if (this.swipeCam && this.cam.id === null) {
       this.cam = { id: e.id, x: e.x, y: e.y };
     }
   }
 
   private releaseJoy() {
-    this.joy.id = -1;
+    this.joy.id = null;
     this.joy.x = this.joy.y = 0;
     this.joyEl.classList.remove('on');
   }
@@ -227,17 +229,17 @@ export class Input extends Emitter<InputEvents> {
       const other = e.id === this.pinch.a ? this.pinch.b : this.pinch.a;
       this.pinch = null;
       const o = this.pts.get(other);
-      this.cam = o ? { id: other, x: o.x, y: o.y } : { id: -1, x: 0, y: 0 };
+      this.cam = o ? { id: other, x: o.x, y: o.y } : { id: null, x: 0, y: 0 };
       return;
     }
-    if (e.id === this.cam.id) this.cam.id = -1;
+    if (e.id === this.cam.id) this.cam.id = null;
   }
 
   /** Release any held touches (called when UI opens). */
   releaseAll() {
-    this.joy.id = -1;
+    this.joy.id = null;
     this.joy.x = this.joy.y = 0;
-    this.cam.id = -1;
+    this.cam.id = null;
     this.pinch = null;
     this.pts.clear();
     this.joyEl.classList.remove('on');
@@ -257,7 +259,7 @@ export class Input extends Emitter<InputEvents> {
     const kl = Math.hypot(x, y);
     if (kl > 0) { x /= kl; y /= kl; }
     let run = k.has('ShiftLeft') || k.has('ShiftRight');
-    if (this.joy.id >= 0) {
+    if (this.joy.id !== null) {
       const jl = Math.hypot(this.joy.x, this.joy.y);
       if (jl > 0.12) {
         const m = Math.min(1, jl);

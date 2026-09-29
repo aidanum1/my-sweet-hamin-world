@@ -186,6 +186,9 @@ export function openSettings(g: Game) {
   toggle('🔇 Mute all', () => s.muted, (v) => (s.muted = v));
   toggle('🎥 Swipe to turn camera', () => s.camSwipe, (v) => (s.camSwipe = v));
   const info = el('p', 'note', tr('Your progress saves automatically on this device (no account needed).') + (g.save.storageOk ? '' : ' ' + tr('⚠️ Storage is blocked in this browser, so progress may not be kept.')));
+  const ver = el('span', 'build', ` · build ${__BUILD__}`);
+  ver.setAttribute('data-no-tr', '');
+  info.appendChild(ver);
   body.appendChild(info);
   const reset = el('button', 'candy small', '🗑️ Reset Save');
   reset.style.marginTop = '8px';

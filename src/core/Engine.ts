@@ -111,10 +111,27 @@ export class Engine {
     if (dt > 0.1) dt = 0.1; // tab switches / hitches
     if (this.paused) dt = 0;
     this.time += dt;
-    for (const t of this.ticks) t(dt, this.time);
+    // each system is guarded: one throwing tick (e.g. audio on a quirky browser) must not stop the frame loop —
+    // three's animation loop only schedules the next frame after this one returns
+    for (const t of this.ticks) {
+      try { t(dt, this.time); } catch (e) { this.report(e); }
+    }
     this.renderer.info.reset();
-    this.present(dt);
+    try { this.present(dt); } catch (e) { this.report(e); }
     this.adapt(dt, now);
+  }
+
+  /** Errors caught in the frame loop (shown in the ?debug overlay; logged once per message). */
+  errors: string[] = [];
+  /** Called once per new error message (the game shows the first ones as a toast so players can report them). */
+  onError: ((msg: string) => void) | null = null;
+  report(e: unknown) {
+    const msg = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
+    if (!this.errors.includes(msg)) {
+      this.errors.push(msg);
+      console.error('frame error', e);
+      try { this.onError?.(msg); } catch { /* never let reporting throw */ }
+    }
   }
 
   /** Step resolution down when the device struggles (PERFORMANCE_BUDGET). */
@@ -140,7 +157,8 @@ export class Engine {
       if (this.debugEl) {
         const i = this.renderer.info;
         this.debugEl.textContent =
-          `${this.fps.toFixed(0)} fps · dpr ${this.dpr.toFixed(2)} · calls ${i.render.calls} · tris ${(i.render.triangles / 1000).toFixed(1)}k · geo ${i.memory.geometries} · tex ${i.memory.textures}`;
+          `${this.fps.toFixed(0)} fps · dpr ${this.dpr.toFixed(2)} · calls ${i.render.calls} · tris ${(i.render.triangles / 1000).toFixed(1)}k · geo ${i.memory.geometries} · tex ${i.memory.textures}` +
+          (this.errors.length ? ` · ⚠ ${this.errors.length}: ${this.errors[this.errors.length - 1].slice(0, 120)}` : '');
       }
     }
     void now;

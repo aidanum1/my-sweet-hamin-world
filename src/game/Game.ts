@@ -90,13 +90,16 @@ export class Game {
     });
     this.input.on('camReset', () => this.cam.reset());
     // first user gesture unlocks audio
+    // (iPhone only accepts a finished tap — touchend / click — as the gesture that may start sound)
     const unlock = () => this.audio.unlock();
-    window.addEventListener('pointerdown', unlock, { once: false, passive: true });
-    window.addEventListener('keydown', unlock, { once: false });
+    for (const ev of ['pointerdown', 'pointerup', 'touchend', 'click']) window.addEventListener(ev, unlock, { passive: true });
+    window.addEventListener('keydown', unlock);
     window.addEventListener('beforeunload', () => this.save.flush());
     document.addEventListener('visibilitychange', () => document.hidden && this.save.flush());
 
     engine.onTick((dt) => this.tick(dt));
+    // show the first couple of errors on screen, so a player can tell us what went wrong on their device
+    engine.onError = (msg) => { if (engine.errors.length <= 2) this.ui.toast('⚠️', `Oops (${__BUILD__}): ${msg.slice(0, 90)}`); };
   }
 
   applySettings() {
@@ -285,14 +288,19 @@ export class Game {
   }
 
   // ---------------- main loop ----------------
+  /** Run one part of the frame; an error in it is reported instead of skipping the rest of the frame. */
+  private safe(fn: () => void) {
+    try { fn(); } catch (e) { this.engine.report(e); }
+  }
+
   private tick(dt: number) {
     this.input.update();
     const sc = this.current;
     if (!sc) return;
-    if (this.mode === 'explore' && sc.explore) this.movePlayer(dt, sc);
-    if (sc.showPlayer) this.player.update(dt);
-    sc.tick(dt);
-    this.fx.update(dt);
+    if (this.mode === 'explore' && sc.explore) this.safe(() => this.movePlayer(dt, sc));
+    if (sc.showPlayer) this.safe(() => this.player.update(dt));
+    this.safe(() => sc.tick(dt));
+    this.safe(() => this.fx.update(dt));
     if (sc.explore || this.mode === 'title') {
       if (this.input.camYaw) {
         this.cam.addYaw(this.input.camYaw);
@@ -308,9 +316,9 @@ export class Game {
       }
       if (this.cam.zoom > 0.05 || Math.abs(this.cam.yawOffset) > 0.3) this.ui.hud.camHint.classList.add('used');
       if (sc.explore) this.cam.target.copy(this.player.root.position);
-      this.cam.update(dt);
+      this.safe(() => this.cam.update(dt));
     }
-    this.tutorial.update(dt);
+    this.safe(() => this.tutorial.update(dt));
   }
 
   private movePlayer(dt: number, sc: GameScene) {
