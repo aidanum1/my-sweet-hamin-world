@@ -1,0 +1,3342 @@
+[
+ {
+  "s": "./geo",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "./materials",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "(*´ω`*) crunchy!",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "(〃´～`〃) nom",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "(๑>ڡ<๑) best!",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "✧٩(ˊωˋ*)و✧ SO GOOD!",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Apple",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Baa?!",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "brr~ sweet! ♡",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Chicken Drumstick",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "crunch! ♡",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Dosirak",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "glug glug ♡",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Golden Strawberry Cake",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Ice Cream",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Noodle Bowl",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Peach",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Rice Ball",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "slurp~ ♡",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Smiley Dumpling",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Strawberry Cake",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Strawberry Milk",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "Tiny Sheep Helper",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "tri{0},{1}",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "wedge{0},{1},{2}",
+  "f": "src/assets/food.ts"
+ },
+ {
+  "s": "ca{0},{1},{2},{3}",
+  "f": "src/assets/geo.ts"
+ },
+ {
+  "s": "ci{0},{1}",
+  "f": "src/assets/geo.ts"
+ },
+ {
+  "s": "co{0},{1},{2}",
+  "f": "src/assets/geo.ts"
+ },
+ {
+  "s": "cy{0},{1},{2},{3}",
+  "f": "src/assets/geo.ts"
+ },
+ {
+  "s": "pl{0},{1}",
+  "f": "src/assets/geo.ts"
+ },
+ {
+  "s": "rb{0},{1},{2},{3},{4}",
+  "f": "src/assets/geo.ts"
+ },
+ {
+  "s": "sp{0},{1},{2}",
+  "f": "src/assets/geo.ts"
+ },
+ {
+  "s": "to{0},{1},{2},{3},{4}",
+  "f": "src/assets/geo.ts"
+ },
+ {
+  "s": "./textures",
+  "f": "src/assets/props.ts"
+ },
+ {
+  "s": "....s...",
+  "f": "src/audio/Audio.ts"
+ },
+ {
+  "s": "../assets/geo",
+  "f": "src/characters/Hamin.ts"
+ },
+ {
+  "s": "./face",
+  "f": "src/characters/Hamin.ts"
+ },
+ {
+  "s": "./outfits",
+  "f": "src/characters/Hamin.ts"
+ },
+ {
+  "s": "Spine02",
+  "f": "src/characters/Hamin.ts"
+ },
+ {
+  "s": "#include",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "0.0 && fuv.y",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "0.25) { vec4 fc = texture2D(faceMap, fuv); float lum = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); float guard = fuv.y > faceTop ? smoothstep(0.2, 0.45, lum) : 1.0; diffuseColor.rgb = mix(diffuseColor.rgb, fc.rgb, fc.a * guard * smoothstep(0.25, 0.45, fr)); } }",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "Head",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "Hips",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "if (faceOn > 0.5) { vec3 fd = vBindPos - faceCenter; vec2 fuv = vec2(dot(fd, faceRight), dot(fd, faceUp)) + 0.5; float fr = dot(normalize(vBindNrm), faceFwd); if (fuv.x > 0.0 && fuv.x",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "totalEmissiveRadiance *= diffuseColor.rgb;",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "varying vec3 vBindPos; varying vec3 vBindNrm;",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "varying vec3 vBindPos; varying vec3 vBindNrm; uniform sampler2D faceMap; uniform float faceOn; uniform float faceTop; uniform vec3 faceCenter; uniform vec3 faceRight; uniform vec3 faceUp; uniform vec3 faceFwd;",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "vBindPos = position; vBindNrm = normal;",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "XYZ",
+  "f": "src/characters/HaminModel.ts"
+ },
+ {
+  "s": "Accessories",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Beach",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Butter Bucket Hat",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Butter Cardigan",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Casual",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Checked Trousers",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Chunky Loafers",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cloud Headphones",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cloud Pajama",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cloud Pajama Pants",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cloud Sneakers",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Comfy Joggers",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cotton Candy",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cotton Candy Hoodie",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cotton Candy Knit",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cozy",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cream Slacks",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Cream Sneakers",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Dance",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Flower Crown",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Fluffy Sheep Hoodie",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Heart Practice Tee",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Heart Shades",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Heart Sweater",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Lavender Hoodie",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Light Denim Shorts",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Light Wash Jeans",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Lilac Pants",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Mic Charm",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Mint Sandals",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Pastel",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Peach Swim Shorts",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Pearl Blue Suit",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Pearl Boots",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Pink Stripe Tee",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Plain White Tee",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Powder Blazer",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Practice Day",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Ribbon Clip",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Round Glasses",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "School",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sea Tank",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sheep Crossbag",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sheep Ear Headband",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sheep Slippers",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sky Backpack",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sky Cap",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sky Dance Shoes",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sleepy Sheep",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Soft Rib Knit",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Stage",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Stage White Pants",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Starlight Jacket",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Starlight Stage",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Strawberry Beach Shirt",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Strawberry Beanie",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Strawberry Kicks",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Studio Session",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sweet Denim",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sweet Denim (signature)",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sweet Denim Jacket",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sweet Reply Uniform",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sweet Reply Vest",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Sweet Sea Day",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Uniform Trousers",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "Vocal",
+  "f": "src/characters/outfits.ts"
+ },
+ {
+  "s": "{0} fps · dpr {1} · calls {2} · tris {3}k · geo {4} · tex {5}",
+  "f": "src/core/Engine.ts"
+ },
+ {
+  "s": "../assets/materials",
+  "f": "src/core/StaticBatcher.ts"
+ },
+ {
+  "s": "My Sweet Hamin World is played in landscape, just like a little handheld game.",
+  "f": "src/core/Viewport.ts"
+ },
+ {
+  "s": "translateZ(0)",
+  "f": "src/core/Viewport.ts"
+ },
+ {
+  "s": "translateZ(0) scale({0})",
+  "f": "src/core/Viewport.ts"
+ },
+ {
+  "s": "Turn your phone sideways ♡",
+  "f": "src/core/Viewport.ts"
+ },
+ {
+  "s": "../assets/textures",
+  "f": "src/fx/Particles.ts"
+ },
+ {
+  "s": "Big Heart",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Bori’s Bone",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Clear Dance Practice",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Clear Dog Chase",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Clear the Eating Game",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Clear Vocal Practice",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Dance Practice",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Dog Chase",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Dolphin",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Eating Game",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Happy Hop",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Headphones",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Hi-hi Wave",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Microphone",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Music Note",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Pencil",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Perform on stage",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Ribbon",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Save a new outfit",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Shy Smile",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Sneaker",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Stage Star",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Star",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Strawberry",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Ticket",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Tulip",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Victory!",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Vocal Practice",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "Wink V",
+  "f": "src/game/collectibles.ts"
+ },
+ {
+  "s": "../characters/HaminModel",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "../characters/outfits",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "../i18n/i18n",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "../interactions/Interactions",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "../utils/math",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "{0} added to your Sticker Book",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "{0} unlocked in your Wardrobe!",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "✨ NEW! ✨",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "📸 Snap!",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "counting sheep…",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "fluffing the clouds…",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "loading sweetness…",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "look model failed to load, using modular body",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "Maybe later",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "Mic Charm unlocked in your Wardrobe!",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "New request: {0}",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "Okay! ♡",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "Oops, that place could not load. Back to the schoolyard!",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "opening the wardrobe…",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "Quest complete! +{0} ♡",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "Saved to your Sticker Book → Photos",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "Scene load failed",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "tidying the dollhouse…",
+  "f": "src/game/Game.ts"
+ },
+ {
+  "s": "Enter",
+  "f": "src/input/Input.ts"
+ },
+ {
+  "s": "Escape",
+  "f": "src/input/Input.ts"
+ },
+ {
+  "s": "Space",
+  "f": "src/input/Input.ts"
+ },
+ {
+  "s": "translate(-50%,-50%)",
+  "f": "src/input/Input.ts"
+ },
+ {
+  "s": "./core/Viewport",
+  "f": "src/main.ts"
+ },
+ {
+  "s": "{0}.{1}s",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "↻ Retry",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "▶ Keep running",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "✨ New best score! ✨",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Ah-!",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Baa?! 🐑",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Back",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Best: {0} ·",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Bori caught you! ♡",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Bori got a treat and is wagging like crazy!",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Bori is waiting patiently… (wag wag)",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Bori just wanted to play… (wag wag)",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Bumps",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Dog Chase!",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Eek!",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Gotcha! ♡",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Hearts",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Hehe~ that tickles! ♡",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Here, Bori! 🦴",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Leave",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Lick lick ♡",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Oof! >_<",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Oops!",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Paused",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Ran",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Run",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Run to the Sheep Bakery!",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Safe at the Sheep Bakery!",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Safe! ♡",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Score",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Splash! 💦",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Time",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Wan wan!",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Woof woof! ♡ (yummy!)",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": "Woof! ♡",
+  "f": "src/minigames/DogChase/DogChaseScene.ts"
+ },
+ {
+  "s": ": jump",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": ": lane",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "{0} / {1} m",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "← Back",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "⌨️ Keyboard",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "▶ Start!",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "♡ grab hearts",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "🏃 Hamin",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "🐑 mind the sheep!",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "🐶 Bori is right behind you!",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "👆 swipe up or ⤒ : jump",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "👈 👉 swipe or ◀ ▶ : change lane",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "💦 puddles slow you",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "📦 dodge or jump obstacles",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "📱 Touch",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "0 m",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "before Bori catches Hamin ♡",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Best score: {0}",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Bori the puppy wants to play! Run through the park to the",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "candy primary",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Hamin: “W-wait, Bori!! (ㅇㅁㅇ)”",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "hearts",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Jump",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Move left",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Move right",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "or",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Pause",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "score",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Sheep Bakery",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "Sheep Bakery 🧁",
+  "f": "src/minigames/DogChase/hud.ts"
+ },
+ {
+  "s": "../../assets/geo",
+  "f": "src/minigames/DogChase/models.ts"
+ },
+ {
+  "s": "♡ fresh treats for good pups ♡",
+  "f": "src/minigames/DogChase/models.ts"
+ },
+ {
+  "s": "GOAL ♡",
+  "f": "src/minigames/DogChase/models.ts"
+ },
+ {
+  "s": "../../assets/props",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "../../characters/outfits",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "↺ Undo",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "✓ Save look",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "✨ changing clothes…",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "✨ Hamin’s Wardrobe ✨",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "✨ Looks",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "🎀 Accessories",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "🎀 Head",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "🎤 Vocal reward",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "👓 Face",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "👕 Tops",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "👖 Bottoms",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "👜 Extras",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "👟 Shoes",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "🔒 Unlock to save",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "🧩 Mix & Match",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "🧩 Mixing pieces switches to the modular body (with Hamin’s real 3D head).",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "candy small",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "candy small blue",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "Clear Vocal Practice to unlock this charm!",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "Close wardrobe",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "Look saved!",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "None",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "Ribbon charm",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "Unlock all · ♡ {0}",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "Unlocked! It’s yours forever ♡",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "Wardrobe",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "You need {0} more ♡ — play mini-games to earn hearts!",
+  "f": "src/minigames/DressUp/DressUpScene.ts"
+ },
+ {
+  "s": "../../assets/food",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "{0} bites",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "{0} combo ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "{0} combo! ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "{0} full tummies",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "/ click when the food is in the ring ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "♡ Start!",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "✓ Done",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "✨ {0} golden cake",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "✨ Yummy Fever ×2 ✨",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "🐑 nibbled {0}×",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "🐑 no sheep were eaten ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "🔁 Replay",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "1 bite",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "1 full tummy",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "ah… (´・ω・`)",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Baa?! −200",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Baa?! 🐑💦",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Best combo",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Best: {0}",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "big bonus",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Chef Mongmong is sending out lunch ♡ Feed Hamin!",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Combos make Hamin happy 😊 · every bite fills his tummy 🍚",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Don’t eat",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Gochisousama! ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "GOLDEN ✨ Perfect!",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "GOLDEN ✨ Yum!",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Golden cake =",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "inside the ring",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Lunch Parade!",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Miss…",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "mm! ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "my food… 🥺",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "New best! So full~ ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "nom~",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Perfect",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "reach 1200 to clear",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "So full~ +300 (っ˘ڡ˘ς)",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "sorry, little sheep! (>_<)",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Still a little hungry…",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Tap anywhere when the food is in the ring ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Tap when the food is",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "thank you~ +50 🐑♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "the tiny sheep helper!",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "time",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Tiny Sheep",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Too early!",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Too late!",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "wait for me~",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Yummy Fever! ×2 ✧*。",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "Yummy lunch! ♡",
+  "f": "src/minigames/EatingGame/EatingGame.ts"
+ },
+ {
+  "s": "↻ Again",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "♡ {0} combo!",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "✨ so good ✨",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "🎤 Microphone",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "🎵 Music Note",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Accuracy",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Almost there…",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "combo",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "combo ♡",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "do♡",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Done ♡",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Good",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Good!",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Good~",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Hit 60% accuracy to clear ✓",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Hit 60% accuracy to clear and earn the {0} charm",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Max combo",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Miss",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Oops…",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Perfect ♡",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Perfect ♪",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Perfect practice!",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Practice clear! ♡",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "reach 60% accuracy to clear",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "rh-note {0} c{1}",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Sing each note as it floats onto the ♡ — tap on the beat!",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Sneakers slide along the ribbon — tap right as they land on the ♡!",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Start ♡",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Stop practice",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Super sweet! ♡",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "Tap anywhere ·",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "translate({0}px, -50%)",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "translateX({0}px)",
+  "f": "src/minigames/Rhythm/RhythmGame.ts"
+ },
+ {
+  "s": "…that there is a sticker hidden in every room of this school. Collect them for the class album!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "2000 points! Keep your combo going~ 🍙",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "A happy tummy makes a happy heart ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "After the show, strike a pose for the photo ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Ah, Hamin. As class president, I must inform you…",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "And the metro can take you all the way to the sea! 🌊",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Baa-velous! A hungry student! 🍱",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Baa~ ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Baa~ Everything is made with love!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Baa~ Hello, Hamin! I water the flowers every morning.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Beach café owner",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Beautiful… my fluff is trembling. ☁️ ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Breathe in like a fluffy cloud… and sing it out softly.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Bunny classmate",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "But careful… my little sheep helper sometimes wanders onto the tray. Don’t eat him! 🐑",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Cafeteria cook",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Can I get a wave? Just one? ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Can you clear one full practice for me? I want to learn your moves!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Chef Mongmong",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Chef Mongmong made a TON of food for lunch.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Choo",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Class president cat",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Cloud vocal coach",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Clouds and waves are best friends 🌊",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Clouds hum too. You just have to listen closely.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Coco",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Collect 4 stickers",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Collect 6 shells at the beach",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Come to the counter and I’ll send out a lunch parade — tap each dish when it reaches your plate!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Could you collect six shells? I want to decorate my café!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Could you find three of them for me? They like cozy corners.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Could you help taste-test it? Just follow the smell to the cafeteria! 🍱",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Crunch crunch… carrot sticks!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Dambi",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Dance room helper",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Did you know? Bori the puppy LOVES to play chase. Be careful! 🐶",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Encore, encore! That was lovely. ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Every classroom hides a sleepy sheep plushie. Can you find them all? 🐑",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Every door here leads somewhere sweet — dance room, vocal room, the cafeteria, the stage…",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Every show unlocks a new pose for photos 📸",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Excellent work. The album is looking lovely. You have my presidential approval ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Fighting~! ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Find 3 hidden sheep plushies",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Five, six, seven, eight! 💃",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Flower-loving sheep",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Four stickers, please. They sparkle, so they’re easy to spot ✨",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Front-row fan cat",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Fwoosh~",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Fwoosh~ I’m Pado. I float over the sea all day.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Get a ticket from the machine, tap it at the gate, then hop on the train.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Good morning, Hamin! ♡ Did you sleep well?",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Ham-ssi",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Hearts ♡ can buy new outfits in your wardrobe!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Here — a welcome gift! Hearts ♡ are our school’s sweet money.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Hey Hamin, want a tiny mission?",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Hmm, the chalkboard doodle… was that you? 👀",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Hungry bunny",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "I drew you in my notebook… as a cloud. Is that okay? ☁️",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "I made a lightstick shaped like a little sheep. Isn’t it cute?",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "I saved you a strawberry milk! 🍓",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "I stuffed my cheeks with sunflower seeds… don’t tell anyone. 🌻",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "I’ll cheer the loudest! 📣",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "I’m testing a new menu. Can you score 2000 points in one lunch?",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Kyaa~ it’s Hamin! ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "La-la-la~ Hello, Hamin. I’m Lulu, your vocal coach.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Let’s do our best today, Hamin! ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Lights… ready! Audience… ready! Hamin… ready? ✨",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Listen… the waves say shhh~ 🌊",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Look in cozy corners — under desks, behind speakers, near plants… 🐑",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Lulu",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Lunch is the best class of the day~",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Mmm~ the dumplings here are the best!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Momo",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "My little plushie friends wandered off into the rooms…",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Nabi",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Next stop: Sweet Sea Beach ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Official request: please collect four room stickers for the class album.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Oh, hi Hamin! Want to sit with me? ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Oh! If you find pretty shells on the sand, I’d love to see them. 🐚",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "One peach ade coming right up! 🍑",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Our class motto: \"Be kind, be sweet, be on time.\" Mostly on time.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Pado",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Peek into the Stage hall. The lights there are sooo pretty ✨",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Perform a stage show",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Pi-pi! Welcome to the dance room!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Piyo",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Play the Eating Game in the cafeteria",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Please stand behind the fluffy line~",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Popo",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Remember to drink water between practices! 💧",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "School guide",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Score 2000+ in the Eating Game",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Sea-breeze cloud",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Shells sparkle on the sand — six please! 🐚",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Sit on the bench by the water sometime. The waves are very good listeners.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Soft voice, big heart ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Stage assistant",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Stage check! One, two~ Welcome, Hamin!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Stand at the microphone when you’re ready to practise. 🎤",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Station attendant",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Step on the pink mat and follow the beat~ 🎵",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Step on the pink mat to start a practice session. Tap on the beat! 💃",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Step onto the star mark on the stage to start a mini show. The audience is already here! ✨",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Stickers go in your Sticker Book. Tap the book in the menu ☰.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Sunny",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Sunny days make the wool extra fluffy.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The audience is waiting! Can you do one little show?",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The cafeteria has strawberry cake today! 🍰",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The cafeteria is across the schoolyard — go taste-test! 🍱",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The clouds above look like my cousins. Can you see them? ☁️",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The lightsticks are all pastel today~",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The microphone is waiting for you~ 🎤",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The sea breeze is lovely today! 🌊",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The sea is extra sparkly today ✨",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The stage is through the big pink doors! ✨",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The star mark is center stage ✨",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The sunset here is the prettiest pink~",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "The train is powered by giggles. Probably.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "They’re perfect! My café looks like a little dream now. Thank you! ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Today is a free day! We can explore the whole school.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Today’s special: strawberry cake! 🍰",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Try my peach ade — made with sunshine and a little sea breeze.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Visit every room at school",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Warm up your voice with a little hum~ 🎵",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Welcome to Sunny’s Seaside Café! ☀️",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Welcome to Sweet Line station! 🚇",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Welcome to Sweet Reply High, Hamin! ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Wonderful appetite! Here, a little tip from the kitchen ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Would you sing one full practice song for me? I’ll give you something special.",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Wow wow wow! Pi-pi! That was amazing ✨",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "You ate everything?! Chef Mongmong must be so proud. ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "You found the stage! You’re a real explorer now. Here, take these ♡",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "You found them! They look so happy. Baa~ Thank you, Hamin!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Your footwork is so light~ like a cloud!",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "Yumi",
+  "f": "src/npcs/npcData.ts"
+ },
+ {
+  "s": "../characters/face",
+  "f": "src/npcs/NpcFactory.ts"
+ },
+ {
+  "s": "../assets/props",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "{0}px \"Apple Color Emoji\",\"Segoe UI Emoji\",sans-serif",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "☀️ Back to daytime",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "☀️ peach ade · sea cupcakes",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "⚓ Sweet Sea Pier",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "✧ so sweet~ ✧",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🌅 Sunset ⇄ ☀️ Day",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🌅 Watch the sunset",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🌊 Sit by the sea",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🍑 Order peach ade",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🍑 Peach ade",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🍓 Berry milk",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🍦 Cloud cone",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "📸 Photo spot",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "📸 Take a photo",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🧁 Sea cupcake",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🚃 Take the metro home",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "🚇 Sweet Line",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "a little harbour by the pastel sea",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "a pretty shell",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "a sheep plushie behind the sandcastle",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "attribute float aPhase; uniform float uTime; uniform float uScale; varying float vA; void main() { vec4 mv = modelViewMatrix * vec4(position, 1.0); float tw = pow(max(0.0, sin(uTime * (1.1 + aPhase) + aPhase * 6.2831)), 4.0); vA = tw; gl_PointSize = (0.06 + 0.32 * tw) * uScale / -mv.z; gl_Position = projectionMatrix * mv; }",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "Dolphin sticker",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "made with sunshine ♡",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "Next stop: Sweet Reply High ♡",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "One peach ade! 🍑",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "Sunny’s Seaside Café",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "Sweet Sea ♡",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "Sweet Sea Beach",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "Sweet Sea Station",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "uniform float uTime; uniform vec4 uIsland; uniform vec2 uHalf; varying vec3 vWorld; varying vec3 vN; varying float vH; float sdBox(vec2 p, vec2 b) { vec2 d = abs(p) - b; return length(max(d, 0.0)) + min(max(d.x, d.y), 0.0); } float wave(vec2 p, float t) { return sin(p.x * 0.33 + t * 0.9) * 0.07 + sin(p.y * 0.47 - t * 1.25 + p.x * 0.18) * 0.06 + sin((p.x + p.y) * 0.95 + t * 1.8) * 0.022; } void main() { vec4 wp = modelMatrix * vec4(position, 1.0); float d = sdBox(wp.xz - uIsland.xy, uIsland.zw); float amp = 0.3 + 0.7 * smoothstep(0.0, 4.0, d); float e = 0.25; float h0 = wave(wp.xz, uTime) * amp; float hx = wave(wp.xz + vec2(e, 0.0), uTime) * amp; float hz = wave(wp.xz + vec2(0.0, e), uTime) * amp; vN = normalize(vec3(h0 - hx, e, h0 - hz)); vH = h0; wp.y += h0; // rounded \"diorama\" rim: the outer ring of vertices tucks down like the edge of a jelly cake vec2 q = abs(position.xy) - (uHalf - 0.01); if (q.x > 0.0 || q.y > 0.0) { wp.y -= 1.1; vN = vec3(0.0, 0.2, 1.0); } vWorld = wp.xyz; gl_Position = projectionMatrix * viewMatrix * wp; }",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "uniform float uTime; uniform vec4 uIsland; uniform vec3 uShallow, uDeep, uHorizon, uFoam, uGlint, uSunDir; varying vec3 vWorld; varying vec3 vN; varying float vH; float sdBox(vec2 p, vec2 b) { vec2 d = abs(p) - b; return length(max(d, 0.0)) + min(max(d.x, d.y), 0.0); } float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); } void main() { vec2 p = vWorld.xz; float d = sdBox(p - uIsland.xy, uIsland.zw); // pier + lighthouse platform (for a thin foam ring) float dp = min(sdBox(p - vec2({0}, {1}), vec2({2}, {3})), sdBox(p - vec2({4}, {5}), vec2({6})) - 0.1); vec3 col = mix(uShallow, uDeep, smoothstep(0.2, 7.5, d)); // melt into the horizon colour far away col = mix(col, uHorizon, smoothstep(-7.0, -22.0, vWorld.z) * 0.85); vec3 n = normalize(vN); float l = dot(n, normalize(uSunDir)); col *= 0.93 + 0.09 * smoothstep(0.35, 0.9, l); // toon crest bands col = mix(col, col + vec3(0.07), smoothstep(0.045, 0.06, vH)); // glitter: sparse twinkling cells that follow the waves vec2 cell = floor(p * vec2(2.2, 3.4) + vec2(uTime * 0.12, 0.0)); float hs = hash(cell); float tw = step(0.965, hs) * pow(max(0.0, sin(uTime * 2.6 + hs * 60.0)), 6.0); vec2 f = fract(p * vec2(2.2, 3.4) + vec2(uTime * 0.12, 0.0)) - 0.5; float star = max(0.0, 1.0 - (abs(f.x) * abs(f.y) * 90.0 + length(f) * 2.4)); col += uGlint * tw * star * 1.4 * smoothstep(0.5, 3.0, d); // view-dependent sun glint vec3 vdir = normalize(cameraPosition - vWorld); vec3 r = reflect(-normalize(uSunDir), n); col += uGlint * step(0.985, max(dot(r, vdir), 0.0)) * 0.25; // shore foam: a breathing edge + a line that rolls in every few seconds float t = uTime; float edge = 0.22 + 0.14 * sin(t * 1.1 + p.x * 0.33 + p.y * 0.2); float foam = 1.0 - smoothstep(edge, edge + 0.08, d); float ph = fract(t * 0.2 + sin(p.x * 0.23 + p.y * 0.17) * 0.06); float lineD = mix(2.4, 0.35, ph); foam += (1.0 - smoothstep(0.0, 0.09, abs(d - lineD))) * smoothstep(0.0, 0.25, ph) * (1.0 - ph) * 0.95; // little foam dots between the lines vec2 fc = fract(p * 4.0) - 0.5; float dots = step(0.6, hash(floor(p * 4.0))) * (1.0 - smoothstep(0.1, 0.17, length(fc))) * (1.0 - smoothstep(0.0, 1.0, d - edge)) * 0.8; foam += dots; foam += (1.0 - smoothstep(0.02, 0.14 + 0.05 * sin(t * 1.6 + p.y), dp)) * 0.85; col = mix(col, uFoam, clamp(foam, 0.0, 1.0)); gl_FragColor = vec4(col, 1.0); #include",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "uniform sampler2D uTex; uniform vec3 uColor; varying float vA; void main() { vec4 t = texture2D(uTex, gl_PointCoord); gl_FragColor = vec4(uColor * t.rgb, t.a * vA); }",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "YXZ",
+  "f": "src/scenes/BeachScene.ts"
+ },
+ {
+  "s": "../assets/food",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "../core/Collision",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "◂ Schoolyard",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "♡ Today’s Menu ♡",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "🍓 Strawberry milk",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "🍗 Crispy drumstick",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "🍙 Rice ball",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "🍜 Noodle bowl",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "🍰 Strawberry cake",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "🍱 Lunch Parade ♡",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "🍱 Lunch time! (Eating Game)",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "🥟 Smiley dumplings",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "a snacking sheep plushie",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "Back to the Schoolyard",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "Cafeteria",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "Lunch time is the best time ♡",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "made with love by Chef Mongmong 🐑",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "Rice Ball sticker",
+  "f": "src/scenes/CafeteriaScene.ts"
+ },
+ {
+  "s": "☁️ Look outside",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "♡ Class 2-1 ♡",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "♪ la la la ♪",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "✏️ Doodle on the board",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "👗 Open the wardrobe",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "👗 Wardrobe",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "📓 Hamin’s notebook",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "📓 Peek at the notebook",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "🪑 Sit at your desk",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "a sleepy sheep plushie",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Be kind, be sweet",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Classroom 2-1",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Free day ♡",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Go to the Schoolyard",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Hamin",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Hamin ♡ was here",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "One of them is doing a little hop!",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Pencil sticker",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "play with Bori (schoolyard)",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "practise a dance ♪",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "ride the metro to the sea 🌊",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "say hi to Momo & Nabi",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Schoolyard ▸",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "Sweet Reply High ♡",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "taste-test lunch (cafeteria)",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "The clouds look like fluffy sheep today… ☁️🐑",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "To-do today ♡",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "try on something cute 👗",
+  "f": "src/scenes/ClassroomScene.ts"
+ },
+ {
+  "s": "(っ˘ω˘ς) refreshing~",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "♡ Dance Practice ♡",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "🎵 Play a song",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "💃 Dance practice",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "💧 Take a sip",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "a dancing sheep plushie",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "baa-lance! ♪",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "Dance Practice Room",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "Five, six, seven, eight! ♡",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "Sneaker sticker",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "stretch first ♡",
+  "f": "src/scenes/DanceScene.ts"
+ },
+ {
+  "s": "✨ Pick up {0}",
+  "f": "src/scenes/GameScene.ts"
+ },
+ {
+  "s": "💬 Talk to {0}",
+  "f": "src/scenes/GameScene.ts"
+ },
+ {
+  "s": "▲ you are here",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "♪ Let’s go~",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🌊 Sweet Sea Beach",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🌊 to Sweet Sea Beach",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🌳 Schoolyard ↑",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🎫 Get a ticket",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🎫 Ticket Gates ♡",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🎫 Tickets",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🐑 School Station",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🚃 Board the train",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "🚪 Tap your ticket",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "a sheep plushie napping under the bench",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "beep ♡",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Beep! Have a sweet trip ♡",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Candy Park",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Cloud Hill",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Got a Sweet Line ticket! Tap it at the gate ♡",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Mint platform · trains to the sea ♡",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "No ticket yet! Try the machines on the left ♡",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "only 1 stop by Sweet Line ♡",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "SWEET LINE · route map",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Sweet Line Station",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Sweet Sea",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "The Sweet Line train is arriving~ Please stand behind the fluffy line ♡",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Ticket sticker",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "You already have a Sweet Line pass ♡ Tap it at the gate!",
+  "f": "src/scenes/MetroScene.ts"
+ },
+ {
+  "s": "Desks, doodles and classmates",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Dress Up Hamin",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Lunch time! The Eating Game",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Microphones and soft singing",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Mirrors, beats and rhythm practice",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Perform a mini show",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Shells, waves and sunsets",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Sweet Reply High · Bori the puppy lives here",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Take the metro to the sea",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "Title",
+  "f": "src/scenes/registry.ts"
+ },
+ {
+  "s": "♡ Sweet Reply High ♡",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "🌟 Stage Hall",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "🐶 Pet Bori",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "📸 Take a photo with the bicycle",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "a sheep plushie behind the tree",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Bori",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Bori is coming!!",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Bori wants to play chase… with Hamin! 🐶💨",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Classroom",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Dance Room",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Enter the {0}",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Enter the Stage Hall",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Go down to the metro",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Just pet Bori",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Play Dog Chase!",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Schoolyard",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Schoolyard bicycle",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Sweet Reply High",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Tulip sticker",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Vocal Room",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Woof woof! (Bori is wagging so fast!)",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "Woof! (Bori looks ready for another round!)",
+  "f": "src/scenes/SchoolyardScene.ts"
+ },
+ {
+  "s": "♡ Fan Zone ♡ lightsticks up!",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "♪ la la la~ ♪",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "✨ Hamin Mini Show ✨",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "✨ NEW pose! “{0}” for your photos",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "✨ tonight only · lightsticks up! ✨",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "🌟 Perform a show",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "🌟 Stage Hall · Sweet Reply High",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "📸 Photo time! Pick a pose ♡",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "🔒 {0} more poses to unlock with shows",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "🔒 1 more pose to unlock with shows",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "🚪 Peek backstage",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "A little sign says “Staff only ♡”…",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "a sheep plushie hiding behind the curtain",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Backstage ♡",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "candy primary small",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Encore! (Show hearts are once a day ♡)",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Hamin ♡ Mini Show",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Hehe… later! The audience is waiting ✨",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Lights, lightsticks, Hamin ♡",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Lightsticks up, everyone! ♡",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Stage Hall",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Stage Star charm",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Star sticker",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "Through the gap: a mirror covered in sticky notes — “Fighting, Hamin!” “You’re doing great!” 🥹",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "What a show! +8 ♡",
+  "f": "src/scenes/StageScene.ts"
+ },
+ {
+  "s": "../ui/Menus",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "♡ a tiny pastel dollhouse world ♡",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "♡ Continue",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "♡ Play",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "⚙️ Settings",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "✦ welcome to ✦",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "💌 Credits",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "candy blue small",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "candy mint small",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "Language",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "My Sweet",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "My Sweet Hamin World",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "opening the dollhouse…",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "Unofficial fan-made game by mysweethamin ♡ · no account needed · progress saves on this device",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "World",
+  "f": "src/scenes/TitleScene.ts"
+ },
+ {
+  "s": "♡ Hamin Hearts ♡",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "🐑 Counting sheep?",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "🔔 Next stop: School Station ♡ Thank you for riding the Sweet Line~",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "🔔 Next stop: Sweet Sea Beach ♡ Please mind the fluffy gap~",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "🚃 Sweet Line",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "Arriving at School Station ♡",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "Arriving at Sweet Sea Beach ♡",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "Back to school~ ♡",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "Bound for School Station ♡",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "Bound for Sweet Sea Beach ♡",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "collect them all~",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "ride the Sweet Line!",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "shells · waves · peach ade",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "skip ▶▶",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "Sweet Line Train",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "translate(-50%,0)",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "Waa~ the sea! 🌊",
+  "f": "src/scenes/TrainScene.ts"
+ },
+ {
+  "s": "● ON AIR",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "🎤 Vocal practice",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "🎧 Listen",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "a singing sheep plushie",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "baa ♪",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "baa baa, sing with me",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "Cloud Song",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "Headphones sticker",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "hum hum, soft heart ♡",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "hum like a sheep~",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "la la ♡",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "la la lu~ fluffy sky",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "one more time~ ♪",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "REC 00:12",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "Vocal Practice Room",
+  "f": "src/scenes/VocalScene.ts"
+ },
+ {
+  "s": "../game/collectibles",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "· cleared ♡",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "{0} places visited",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "{0}/{1} stickers",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "▶️ YouTube",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "♡ Menu ♡",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "⚠️ Storage is blocked in this browser, so progress may not be kept.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "✨ Sound effects",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "❓ How to play",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "⭐ Stickers",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🌐 Language",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🌐 Language · 언어 · 言語 · 语言",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🌐 Weibo",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🌟 Stage show — center stage",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🍱 Eating Game — the cafeteria counter",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🎥 Swipe to turn camera",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🎵 Music",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🏆 Scores",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🏠 Title screen",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🐑 Hidden sheep plushies · {0}/{1}",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🐚 Collection",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🐚 Shells · {0}/{1}",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🐶 Dog Chase — pet Bori in the schoolyard",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "💃 Dance & 🎤 Vocal practice — their rooms",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "📒 Sticker Book",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "📕 RedNote",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "📝 Requests",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "📸 Photos",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "📸 Stage poses · {0}/{1}",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🔇 Mute all",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🔊 Master",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🗑️ Reset Save",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "🗺️ Map",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "All music and sound effects are original and synthesised live in your browser. No copyrighted songs are used.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Camera",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Charms · {0}/{1}",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Controls & tips",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Credits",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Development & design",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "done ♡",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Drag anywhere on the left half of the screen to walk. Drag far to run.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Dress up Hamin",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "E, Space or Enter to interact (or click ♡). Esc opens the menu.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Earn hearts from mini-games, stickers, NPC requests and chatting each day. Spend them in the 👗 Wardrobe.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Game design, code, UI, world building and writing: a fan tribute made with love by mysweethamin.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Hamin Hearts ♡",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "How to play",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Interacting",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Keep",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Made by",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Made with ✨ and 💕",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Map",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Mini-games",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Moving",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Music & sound",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "MY SWEET HAMIN WORLD",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "mysweethamin",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "No photos yet! Find photo spots on the stage and at the beach 📸",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Not affiliated with, endorsed by, or connected to Hamin, SMTR25, SM Entertainment, Mnet or any broadcaster.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Not discovered yet",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "not played yet",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Original artwork & assets",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "played {0}× {1}",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Q / R turn the camera a little, C resets it.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "ready — go tell them!",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Reset",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Reset save?",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Respect",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "reward {0} ♡",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Room stickers · {0}/{1}",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Save reset. A fresh sweet start!",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Settings",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Sound & save",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Sticker Book",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Swipe on the right half to turn the camera a little. 🎥 resets it.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Talk to the NPCs around school — some of them have little requests for you ♡",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Tap a place you have visited to travel there. The beach is reached by metro ♡",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Tap the big ♡ button when a label pops up: talk, sit, enter doors, play…",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "The chibi Hamin (8 looks) was generated from original prompts with Higgsfield AI (image → rigged 3D) and then optimised and animated for the game. All 3D props, NPCs, rooms and UI are original and built procedurally in code. No photos, logos or official assets are used.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "This erases your hearts, outfits, stickers and progress on this device. Are you sure?",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "This is a sweet, fictional little world. Everything that happens here is made up for fun ♡ Places like \"Sweet Reply High\" and \"Sweet Sea Beach\" are fictional.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Three.js · TypeScript · Vite · Higgsfield (character generation) · gltf-transform · Nunito font (Google Fonts, OFL)",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Tools",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Total hearts earned: {0} ♡",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Unofficial fan game",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Unofficial fan-made project.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "WASD or the arrow keys to walk. Hold Shift to run.",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "𝕏 X",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "Your progress saves automatically on this device (no account needed).",
+  "f": "src/ui/Menus.ts"
+ },
+ {
+  "s": "…and spend them on outfits in the Wardrobe!",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "Drag on the left side of the screen to walk around!",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "skip ✕",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "These are Hamin Hearts! Earn them from friends, stickers and mini-games…",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "tut paper",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "Use WASD or the arrow keys to walk around!",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "Walk to the door to explore the school. Have fun ♡",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "Walk up to Momo the bunny and press E to say hi!",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "Walk up to Momo the bunny and tap the big ♡ button to say hi!",
+  "f": "src/ui/Tutorial.ts"
+ },
+ {
+  "s": "+{0} ♡ Hamin Hearts",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "📱↻ Rotate your device for the best experience ♡",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "Cancel",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "Close",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "dialogue paper",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "drag here",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "GO! ♡",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "Interact",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "Menu",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "modal paper",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "Reset camera",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "to walk",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "toasts passthrough",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "translate({0}cqw, {1}cqh) scale(.6)",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "translate(0,0) scale(1)",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "Yes",
+  "f": "src/ui/UI.ts"
+ },
+ {
+  "s": "(pointer: coarse)",
+  "f": "src/utils/math.ts"
+ }
+]

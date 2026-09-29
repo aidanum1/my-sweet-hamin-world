@@ -1,0 +1,30 @@
+{
+  "style": "Isolated single object centered on a plain pure white background, three-quarter front view from slightly above, cute pastel miniature game prop, smooth clay / soft vinyl toy render, rounded chunky shapes, soft studio lighting, cozy Animal-Crossing-like style, no text, no letters, no people, no background scenery.",
+  "assets": [
+    { "id": "hq_school", "scene": "yard", "model": "hq", "ar": "16:9", "prompt": "A wide, shallow, cute pastel two-story school building facade seen from the front: cream walls, strawberry-pink roof, a small central clock tower with a round white clock, four evenly spaced front doors in a row (pink, sky blue, lavender, peach) each with a small striped awning, windows with flower boxes." },
+    { "id": "hq_stage", "scene": "stage", "model": "hq", "ar": "4:3", "prompt": "A cute pastel concert stage set: a raised round-cornered stage platform with pink frosting-like trim, drawn-back pink curtains on both sides, a lavender backdrop with a big star, a small lighting truss with spotlights, two little speakers." },
+    { "id": "hq_train", "scene": "metro", "model": "hq", "ar": "16:9", "prompt": "A cute pastel mint-green subway train car seen from the side and slightly front, a smiling fluffy sheep face on the front, rounded toy-like body, pink doors, round windows, white roof." },
+    { "id": "hq_lighthouse", "scene": "beach", "model": "hq", "ar": "3:4", "prompt": "A cute pastel red-and-white striped lighthouse on a small rounded rocky base, round glass lantern room with a pink dome roof and a tiny balcony railing, chunky toy proportions." },
+    { "id": "fountain", "scene": "yard", "model": "sam", "ar": "1:1", "prompt": "A round white stone fountain with a fluffy sheep statue on top spouting water into a pastel blue basin." },
+    { "id": "blossom_tree", "scene": "yard", "model": "sam", "ar": "1:1", "prompt": "A chunky cherry blossom tree with a fluffy round pink canopy and a short brown trunk." },
+    { "id": "sheep_bench", "scene": "yard", "model": "sam", "ar": "1:1", "prompt": "A pastel pink park bench with fluffy sheep-shaped armrests." },
+    { "id": "desk_set", "scene": "classroom", "model": "sam", "ar": "1:1", "prompt": "A cute pastel wooden school desk with a matching pink chair, a pencil case and a notebook on top." },
+    { "id": "teacher_desk", "scene": "classroom", "model": "sam", "ar": "1:1", "prompt": "A cute pastel teacher's desk with a flower vase, a stack of books and a little red apple." },
+    { "id": "lockers", "scene": "classroom", "model": "sam", "ar": "1:1", "prompt": "A row of three pastel school lockers (sky blue, pink, mint) with cute sticker decorations." },
+    { "id": "bookshelf", "scene": "classroom", "model": "sam", "ar": "1:1", "prompt": "A cute pastel white bookshelf full of colorful books, a small potted plant and a sheep plush." },
+    { "id": "food_counter", "scene": "cafeteria", "model": "sam", "ar": "4:3", "prompt": "A cute pastel cafeteria food counter with a glass display of dumplings, rice balls and strawberry cakes, pink and white striped front." },
+    { "id": "kitchen", "scene": "cafeteria", "model": "sam", "ar": "4:3", "prompt": "A cute pastel kitchen corner: a cream stove with a steaming soup pot and a mint fridge with sheep magnets next to it." },
+    { "id": "cafe_table", "scene": "cafeteria", "model": "sam", "ar": "1:1", "prompt": "A round white cafeteria table with two fluffy sheep-shaped stools and a tray with a lunch box on the table." },
+    { "id": "speaker_stack", "scene": "dance", "model": "sam", "ar": "1:1", "prompt": "A chunky pastel lavender speaker stack with heart-shaped speaker grilles." },
+    { "id": "clothes_rack", "scene": "dance", "model": "sam", "ar": "1:1", "prompt": "A pastel clothes rack with pastel hoodies and t-shirts on hangers and a pair of sneakers below." },
+    { "id": "studio_desk", "scene": "vocal", "model": "sam", "ar": "4:3", "prompt": "A cute pastel recording studio desk with a mixer board, small monitor speakers, headphones and a little computer screen." },
+    { "id": "cozy_sofa", "scene": "vocal", "model": "sam", "ar": "1:1", "prompt": "A small cozy pastel pink sofa with fluffy sheep cushions." },
+    { "id": "ticket_machine", "scene": "metro", "model": "sam", "ar": "1:1", "prompt": "A cute mint-green metro ticket vending machine with a sheep face on top and big round pastel buttons." },
+    { "id": "metro_bench", "scene": "metro", "model": "sam", "ar": "1:1", "prompt": "A pastel mint station bench with a small potted plant beside it." },
+    { "id": "cafe_stall", "scene": "beach", "model": "sam", "ar": "1:1", "prompt": "A cute seaside café stall with a mint and white striped awning and a counter with peach drinks." },
+    { "id": "umbrella_set", "scene": "beach", "model": "sam", "ar": "1:1", "prompt": "A pink and white striped beach umbrella with two pastel deck chairs and a beach ball." },
+    { "id": "boat", "scene": "beach", "model": "sam", "ar": "1:1", "prompt": "A small cute pastel rowing boat, pink and white, with a tiny flag." },
+    { "id": "sandcastle", "scene": "beach", "model": "sam", "ar": "1:1", "prompt": "A cute sandcastle with little pink flags and seashells around it." },
+    { "id": "bakery", "scene": "dogchase", "model": "sam", "ar": "1:1", "prompt": "A cute little pastel bakery shop building shaped with a fluffy sheep roof, a striped awning and cupcakes in the window." }
+  ]
+}
