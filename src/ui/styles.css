@@ -36,6 +36,8 @@ html, body {
 body.letterbox { background: radial-gradient(circle at 20% 20%, #ffe3ea 0 18%, transparent 19%) 0 0 / 46px 46px, linear-gradient(135deg, #b2d9ff, #ffccd5); }
 body.letterbox #app { border-radius: 18px; box-shadow: 0 10px 40px rgba(160, 150, 210, .45), 0 0 0 5px #fff; }
 #game { position: absolute; inset: 0; display: block; outline: none; }
+/* drags on the game (joystick, camera, dress-up turntable) must never become page scrolls / zooms (iOS cancels them) */
+#app, canvas { touch-action: none; -webkit-touch-callout: none; }
 #ui { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
 /* zero-specificity default, so decorative overlays that declare pointer-events:none (joystick hint, top HUD strip…)
    really let touches through to the game canvas */

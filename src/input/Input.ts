@@ -1,8 +1,21 @@
 import { Emitter } from '../core/Events';
 import { appRoot, toAppX, toAppY } from '../core/Viewport';
 
-const ax = (e: PointerEvent) => toAppX(e.clientX);
-const ay = (e: PointerEvent) => toAppY(e.clientY);
+/** One finger / mouse / pen, normalised from Pointer Events or Touch Events (x, y in #app px). */
+interface Ptr { id: number; type: string; x: number; y: number; button: number; shift: boolean; target: EventTarget | null }
+const fromPointer = (e: PointerEvent): Ptr => ({
+  id: e.pointerId, type: e.pointerType, x: toAppX(e.clientX), y: toAppY(e.clientY), button: e.button, shift: e.shiftKey, target: e.target,
+});
+/** Touch ids live in their own range so they can never collide with pointer ids. */
+const fromTouch = (t: Touch, e: TouchEvent): Ptr => ({
+  id: 100000 + t.identifier, type: 'touch', x: toAppX(t.clientX), y: toAppY(t.clientY), button: 0, shift: false, target: t.target ?? e.target,
+});
+/**
+ * Fingers are read from Touch Events wherever they exist (every phone browser and in-app browser): some browsers
+ * (notably iOS Safari) cancel a Pointer Events drag they think is a page scroll/zoom, and a few embedded browsers
+ * lack Pointer Events. The mouse and pens still use Pointer Events.
+ */
+const TOUCH_EVENTS = typeof window !== 'undefined' && 'ontouchstart' in window;
 
 type InputEvents = {
   action: [];
@@ -52,14 +65,44 @@ export class Input extends Emitter<InputEvents> {
     this.joyEl.appendChild(this.knobEl);
     appRoot().appendChild(this.joyEl);
 
-    surface.addEventListener('pointerdown', (e) => this.down(e));
+    const usePointer = (e: PointerEvent) => !(TOUCH_EVENTS && e.pointerType === 'touch');
+    surface.addEventListener('pointerdown', (e) => usePointer(e) && this.down(fromPointer(e)));
+    window.addEventListener('pointermove', (e) => usePointer(e) && this.moveP(fromPointer(e)));
+    window.addEventListener('pointerup', (e) => usePointer(e) && this.up(fromPointer(e)));
+    window.addEventListener('pointercancel', (e) => usePointer(e) && this.up(fromPointer(e)));
     surface.addEventListener('wheel', (e) => {
       e.preventDefault();
       if (this.swipeCam) this.camZoom -= Math.sign(e.deltaY) * Math.min(0.12, Math.abs(e.deltaY) * 0.0016);
     }, { passive: false });
-    window.addEventListener('pointermove', (e) => this.moveP(e));
-    window.addEventListener('pointerup', (e) => this.up(e));
-    window.addEventListener('pointercancel', (e) => this.up(e));
+    if (TOUCH_EVENTS) {
+      // only fingers that started on the game are ours; their moves must not scroll / zoom the page
+      const ours = new Set<number>();
+      surface.addEventListener('touchstart', (e) => {
+        for (const t of Array.from(e.changedTouches)) {
+          ours.add(t.identifier);
+          this.down(fromTouch(t, e));
+        }
+      }, { passive: true });
+      window.addEventListener('touchmove', (e) => {
+        let mine = false;
+        for (const t of Array.from(e.changedTouches)) {
+          if (!ours.has(t.identifier)) continue;
+          mine = true;
+          this.moveP(fromTouch(t, e));
+        }
+        if (mine && e.cancelable) e.preventDefault();
+      }, { passive: false });
+      const end = (e: TouchEvent) => {
+        for (const t of Array.from(e.changedTouches)) {
+          if (!ours.delete(t.identifier)) continue;
+          this.up(fromTouch(t, e));
+        }
+      };
+      window.addEventListener('touchend', end);
+      window.addEventListener('touchcancel', end);
+      // Safari's own page pinch-zoom would fight the camera pinch
+      document.addEventListener('gesturestart', (e) => e.preventDefault());
+    }
   }
 
   private onKey(e: KeyboardEvent, down: boolean) {
@@ -85,36 +128,36 @@ export class Input extends Emitter<InputEvents> {
     return this.keys.has(code);
   }
 
-  private down(e: PointerEvent) {
+  private down(e: Ptr) {
     const w = window.innerWidth;
     const now = performance.now();
-    this.swipeStart.set(e.pointerId, { x: ax(e), y: ay(e), t: now });
+    this.swipeStart.set(e.id, { x: e.x, y: e.y, t: now });
     if (!this.enabled) return;
     // a second finger landing right after the first (before it has moved much) = pinch, wherever it started
-    if (e.pointerType !== 'mouse' && this.swipeCam && !this.pinch && this.pts.size === 1) {
+    if (e.type !== 'mouse' && this.swipeCam && !this.pinch && this.pts.size === 1) {
       const [[id0, p0]] = [...this.pts];
       const s0 = this.swipeStart.get(id0);
       const moved = s0 ? Math.hypot(p0.x - s0.x, p0.y - s0.y) : 99;
       if ((s0 && now - s0.t < 300 && moved < 14) || id0 === this.cam.id) {
         if (id0 === this.joy.id) this.releaseJoy();
         this.cam = { id: -1, x: 0, y: 0 };
-        this.pts.set(e.pointerId, { x: ax(e), y: ay(e) });
-        this.pinch = { a: id0, b: e.pointerId, d: Math.hypot(ax(e) - p0.x, ay(e) - p0.y) };
+        this.pts.set(e.id, { x: e.x, y: e.y });
+        this.pinch = { a: id0, b: e.id, d: Math.hypot(e.x - p0.x, e.y - p0.y) };
         return;
       }
     }
-    if (e.pointerType !== 'mouse') this.pts.set(e.pointerId, { x: ax(e), y: ay(e) });
-    if (this.joystickEnabled && ax(e) < w * 0.5 && this.joy.id < 0 && e.pointerType !== 'mouse') {
-      this.joy = { id: e.pointerId, ox: ax(e), oy: ay(e), x: 0, y: 0 };
-      this.joyEl.style.left = ax(e) + 'px';
-      this.joyEl.style.top = ay(e) + 'px';
+    if (e.type !== 'mouse') this.pts.set(e.id, { x: e.x, y: e.y });
+    if (this.joystickEnabled && e.x < w * 0.5 && this.joy.id < 0 && e.type !== 'mouse') {
+      this.joy = { id: e.id, ox: e.x, oy: e.y, x: 0, y: 0 };
+      this.joyEl.style.left = e.x + 'px';
+      this.joyEl.style.top = e.y + 'px';
       this.joyEl.classList.add('on');
       this.knobEl.style.transform = 'translate(-50%,-50%)';
-    } else if (this.joystickEnabled && e.pointerType === 'mouse' && e.button === 0 && ax(e) < w * 0.5 && this.joy.id < 0 && e.shiftKey) {
+    } else if (this.joystickEnabled && e.type === 'mouse' && e.button === 0 && e.x < w * 0.5 && this.joy.id < 0 && e.shift) {
       // desktop mouse can also drive the joystick with shift-drag (debug/accessibility)
-      this.joy = { id: e.pointerId, ox: ax(e), oy: ay(e), x: 0, y: 0 };
+      this.joy = { id: e.id, ox: e.x, oy: e.y, x: 0, y: 0 };
     } else if (this.swipeCam && this.cam.id < 0) {
-      this.cam = { id: e.pointerId, x: ax(e), y: ay(e) };
+      this.cam = { id: e.id, x: e.x, y: e.y };
     }
   }
 
@@ -124,20 +167,20 @@ export class Input extends Emitter<InputEvents> {
     this.joyEl.classList.remove('on');
   }
 
-  private moveP(e: PointerEvent) {
-    if (this.pts.has(e.pointerId)) this.pts.set(e.pointerId, { x: ax(e), y: ay(e) });
-    if (e.pointerId === this.joy.id) {
+  private moveP(e: Ptr) {
+    if (this.pts.has(e.id)) this.pts.set(e.id, { x: e.x, y: e.y });
+    if (e.id === this.joy.id) {
       const R = 56;
-      let dx = ax(e) - this.joy.ox;
-      let dy = ay(e) - this.joy.oy;
+      let dx = e.x - this.joy.ox;
+      let dy = e.y - this.joy.oy;
       const d = Math.hypot(dx, dy);
       if (d > R) {
         // floating base follows the thumb when dragged far
         const k = (d - R) / d;
         this.joy.ox += dx * k;
         this.joy.oy += dy * k;
-        dx = ax(e) - this.joy.ox;
-        dy = ay(e) - this.joy.oy;
+        dx = e.x - this.joy.ox;
+        dy = e.y - this.joy.oy;
         this.joyEl.style.left = this.joy.ox + 'px';
         this.joyEl.style.top = this.joy.oy + 'px';
       }
@@ -146,7 +189,7 @@ export class Input extends Emitter<InputEvents> {
       this.knobEl.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
       return;
     }
-    if (this.pinch && (e.pointerId === this.pinch.a || e.pointerId === this.pinch.b)) {
+    if (this.pinch && (e.id === this.pinch.a || e.id === this.pinch.b)) {
       const a = this.pts.get(this.pinch.a), b = this.pts.get(this.pinch.b);
       if (a && b) {
         const d = Math.hypot(a.x - b.x, a.y - b.y);
@@ -155,39 +198,39 @@ export class Input extends Emitter<InputEvents> {
       }
       return;
     }
-    if (e.pointerId === this.cam.id) {
-      const dx = ax(e) - this.cam.x, dy = ay(e) - this.cam.y;
-      this.cam.x = ax(e);
-      this.cam.y = ay(e);
+    if (e.id === this.cam.id) {
+      const dx = e.x - this.cam.x, dy = e.y - this.cam.y;
+      this.cam.x = e.x;
+      this.cam.y = e.y;
       this.camYaw -= dx * 0.007;
       this.camPitch += dy * 0.004;
     }
   }
 
-  private up(e: PointerEvent) {
-    const s = this.swipeStart.get(e.pointerId);
-    this.swipeStart.delete(e.pointerId);
+  private up(e: Ptr) {
+    const s = this.swipeStart.get(e.id);
+    this.swipeStart.delete(e.id);
     if (s) {
-      const dx = ax(e) - s.x;
-      const dy = ay(e) - s.y;
+      const dx = e.x - s.x;
+      const dy = e.y - s.y;
       const dt = performance.now() - s.t;
       const d = Math.hypot(dx, dy);
       if (d > 36 && dt < 450) {
         if (Math.abs(dx) > Math.abs(dy)) this.emit('swipe', dx > 0 ? 'right' : 'left');
         else this.emit('swipe', dy > 0 ? 'down' : 'up');
-      } else if (d < 12 && dt < 350 && e.target === this.surface) this.emit('tap', ax(e), ay(e));
+      } else if (d < 12 && dt < 350 && e.target === this.surface) this.emit('tap', e.x, e.y);
     }
-    if (e.pointerId === this.joy.id) this.releaseJoy();
-    this.pts.delete(e.pointerId);
-    if (this.pinch && (e.pointerId === this.pinch.a || e.pointerId === this.pinch.b)) {
+    if (e.id === this.joy.id) this.releaseJoy();
+    this.pts.delete(e.id);
+    if (this.pinch && (e.id === this.pinch.a || e.id === this.pinch.b)) {
       // the finger that stays down keeps turning the camera
-      const other = e.pointerId === this.pinch.a ? this.pinch.b : this.pinch.a;
+      const other = e.id === this.pinch.a ? this.pinch.b : this.pinch.a;
       this.pinch = null;
       const o = this.pts.get(other);
       this.cam = o ? { id: other, x: o.x, y: o.y } : { id: -1, x: 0, y: 0 };
       return;
     }
-    if (e.pointerId === this.cam.id) this.cam.id = -1;
+    if (e.id === this.cam.id) this.cam.id = -1;
   }
 
   /** Release any held touches (called when UI opens). */
