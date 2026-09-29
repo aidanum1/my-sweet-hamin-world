@@ -31,8 +31,8 @@
 
 ## Measured results (landmark + NPC/sheep pass, 2026-09-29)
 Measured in-engine with `renderer.info` at the **mobile profile**: touch device, DPR 1.5, shadow maps off,
-740×360 landscape viewport, at each scene's spawn view. Numbers are for the full frame, including Hamin (about 26k
-triangles for the skinned Higgsfield model).
+740×360 landscape viewport, at each scene's spawn view. Numbers are for the full frame, including Hamin (the skinned Higgsfield model: ≈26k triangles when measured; the
+looks are now unsimplified at ≈31k).
 
 | Scene | Draw calls | Triangles | Before landmarks | FPS* |
 |---|---|---|---|---|
@@ -66,8 +66,8 @@ On desktop with soft shadows on, draw calls roughly double (the shadow pass) and
 |---|---|
 | JS (all chunks, gzip) | ≈ 250 KB (three.js core ≈ 156 KB) |
 | CSS (gzip) | 6 KB |
-| Initial Hamin model (`hamin.glb`, meshopt + WebP) | 651 KB |
-| Each extra look (lazy, on first wear) | 0.6–0.77 MB |
+| Initial Hamin model (`hamin.glb`, meshopt + 1536² WebP q92, not simplified) | 1.6 MB |
+| Each extra look (lazy, on first wear) | 1.5–1.75 MB |
 | Scene data | 3–80 KB JS per scene + landmark GLBs (24 files, ≈2.5 MB total; 40–550 KB each) |
 
 Optimisations applied along the way: static merging (StaticBatcher), NPC/Dog static-part merging (182 → 78 draw calls in

@@ -39,7 +39,7 @@ async function iconGallery() {
 
 export async function startRef(engine: Engine) {
   if (new URLSearchParams(location.search).get('ref') === 'icons') return iconGallery();
-  const gltf = new URLSearchParams(location.search).has('proc') ? null : await loadHaminGltf();
+  const gltf = new URLSearchParams(location.search).has('proc') ? null : await loadHaminGltf(new URLSearchParams(location.search).get('model') ?? undefined);
   const q = new URLSearchParams(location.search);
   const mode = q.get('ref') || 'turn';
   const scene = new THREE.Scene();
@@ -83,7 +83,7 @@ export async function startRef(engine: Engine) {
     cam.position.set(0, 1.5, 5.4);
     cam.lookAt(0, 1.05, 0);
   } else if (mode === 'faceclose') {
-    (['neutral', 'blink', 'happy', 'surprised'] as Expression[]).forEach((e, i) => add(i * 1.3 - 1.95, 0, 0, e, undefined, e));
+    ((q.get('list')?.split(',') ?? ['neutral', 'blink', 'happy', 'surprised']) as Expression[]).forEach((e, i) => add(i * 1.3 - 1.95, 0, 0, e, undefined, e));
     if (q.has('one')) { list.slice(1).forEach((h) => (h.root.visible = false)); list[0].root.position.x = 0; }
     cam.position.set(0, 1.7, q.has('one') ? 2.3 : 4.2);
     cam.lookAt(0, 1.45, 0);

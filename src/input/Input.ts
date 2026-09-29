@@ -16,19 +16,25 @@ type InputEvents = {
 };
 
 /**
- * Keyboard + floating virtual joystick + camera swipe.
+ * Keyboard + floating virtual joystick + camera controls.
  * `move` is in screen space: x = right, y = up/forward. Magnitude 0..1.
+ * Camera: drag (touch: right half) turns / tilts, two-finger pinch or the mouse wheel zooms, Q/R turn, +/- zoom.
  */
 export class Input extends Emitter<InputEvents> {
   move = { x: 0, y: 0 };
   runHeld = false;
   camYaw = 0; // accumulated yaw delta (radians) — consumer resets
+  camPitch = 0; // accumulated tilt delta (radians, + = look from higher) — consumer resets
+  camZoom = 0; // accumulated zoom delta (+ = closer) — consumer resets
   enabled = true; // joystick & movement
   joystickEnabled = true;
   swipeCam = true;
   private keys = new Set<string>();
   private joy = { id: -1, ox: 0, oy: 0, x: 0, y: 0 };
-  private cam = { id: -1, x: 0 };
+  private cam = { id: -1, x: 0, y: 0 };
+  /** live positions of pointers that started on the game surface (for pinch) */
+  private pts = new Map<number, { x: number; y: number }>();
+  private pinch: { a: number; b: number; d: number } | null = null;
   private swipeStart = new Map<number, { x: number; y: number; t: number }>();
   private joyEl: HTMLDivElement;
   private knobEl: HTMLDivElement;
@@ -47,6 +53,10 @@ export class Input extends Emitter<InputEvents> {
     appRoot().appendChild(this.joyEl);
 
     surface.addEventListener('pointerdown', (e) => this.down(e));
+    surface.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      if (this.swipeCam) this.camZoom -= Math.sign(e.deltaY) * Math.min(0.12, Math.abs(e.deltaY) * 0.0016);
+    }, { passive: false });
     window.addEventListener('pointermove', (e) => this.moveP(e));
     window.addEventListener('pointerup', (e) => this.up(e));
     window.addEventListener('pointercancel', (e) => this.up(e));
@@ -77,8 +87,23 @@ export class Input extends Emitter<InputEvents> {
 
   private down(e: PointerEvent) {
     const w = window.innerWidth;
-    this.swipeStart.set(e.pointerId, { x: ax(e), y: ay(e), t: performance.now() });
+    const now = performance.now();
+    this.swipeStart.set(e.pointerId, { x: ax(e), y: ay(e), t: now });
     if (!this.enabled) return;
+    // a second finger landing right after the first (before it has moved much) = pinch, wherever it started
+    if (e.pointerType !== 'mouse' && this.swipeCam && !this.pinch && this.pts.size === 1) {
+      const [[id0, p0]] = [...this.pts];
+      const s0 = this.swipeStart.get(id0);
+      const moved = s0 ? Math.hypot(p0.x - s0.x, p0.y - s0.y) : 99;
+      if ((s0 && now - s0.t < 300 && moved < 14) || id0 === this.cam.id) {
+        if (id0 === this.joy.id) this.releaseJoy();
+        this.cam = { id: -1, x: 0, y: 0 };
+        this.pts.set(e.pointerId, { x: ax(e), y: ay(e) });
+        this.pinch = { a: id0, b: e.pointerId, d: Math.hypot(ax(e) - p0.x, ay(e) - p0.y) };
+        return;
+      }
+    }
+    if (e.pointerType !== 'mouse') this.pts.set(e.pointerId, { x: ax(e), y: ay(e) });
     if (this.joystickEnabled && ax(e) < w * 0.5 && this.joy.id < 0 && e.pointerType !== 'mouse') {
       this.joy = { id: e.pointerId, ox: ax(e), oy: ay(e), x: 0, y: 0 };
       this.joyEl.style.left = ax(e) + 'px';
@@ -89,11 +114,18 @@ export class Input extends Emitter<InputEvents> {
       // desktop mouse can also drive the joystick with shift-drag (debug/accessibility)
       this.joy = { id: e.pointerId, ox: ax(e), oy: ay(e), x: 0, y: 0 };
     } else if (this.swipeCam && this.cam.id < 0) {
-      this.cam = { id: e.pointerId, x: ax(e) };
+      this.cam = { id: e.pointerId, x: ax(e), y: ay(e) };
     }
   }
 
+  private releaseJoy() {
+    this.joy.id = -1;
+    this.joy.x = this.joy.y = 0;
+    this.joyEl.classList.remove('on');
+  }
+
   private moveP(e: PointerEvent) {
+    if (this.pts.has(e.pointerId)) this.pts.set(e.pointerId, { x: ax(e), y: ay(e) });
     if (e.pointerId === this.joy.id) {
       const R = 56;
       let dx = ax(e) - this.joy.ox;
@@ -112,10 +144,23 @@ export class Input extends Emitter<InputEvents> {
       this.joy.x = dx / R;
       this.joy.y = -dy / R;
       this.knobEl.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
-    } else if (e.pointerId === this.cam.id) {
-      const dx = ax(e) - this.cam.x;
+      return;
+    }
+    if (this.pinch && (e.pointerId === this.pinch.a || e.pointerId === this.pinch.b)) {
+      const a = this.pts.get(this.pinch.a), b = this.pts.get(this.pinch.b);
+      if (a && b) {
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        this.camZoom += (d - this.pinch.d) * 0.0045;
+        this.pinch.d = d;
+      }
+      return;
+    }
+    if (e.pointerId === this.cam.id) {
+      const dx = ax(e) - this.cam.x, dy = ay(e) - this.cam.y;
       this.cam.x = ax(e);
-      this.camYaw -= dx * 0.006;
+      this.cam.y = ay(e);
+      this.camYaw -= dx * 0.007;
+      this.camPitch += dy * 0.004;
     }
   }
 
@@ -132,10 +177,15 @@ export class Input extends Emitter<InputEvents> {
         else this.emit('swipe', dy > 0 ? 'down' : 'up');
       } else if (d < 12 && dt < 350 && e.target === this.surface) this.emit('tap', ax(e), ay(e));
     }
-    if (e.pointerId === this.joy.id) {
-      this.joy.id = -1;
-      this.joy.x = this.joy.y = 0;
-      this.joyEl.classList.remove('on');
+    if (e.pointerId === this.joy.id) this.releaseJoy();
+    this.pts.delete(e.pointerId);
+    if (this.pinch && (e.pointerId === this.pinch.a || e.pointerId === this.pinch.b)) {
+      // the finger that stays down keeps turning the camera
+      const other = e.pointerId === this.pinch.a ? this.pinch.b : this.pinch.a;
+      this.pinch = null;
+      const o = this.pts.get(other);
+      this.cam = o ? { id: other, x: o.x, y: o.y } : { id: -1, x: 0, y: 0 };
+      return;
     }
     if (e.pointerId === this.cam.id) this.cam.id = -1;
   }
@@ -145,6 +195,8 @@ export class Input extends Emitter<InputEvents> {
     this.joy.id = -1;
     this.joy.x = this.joy.y = 0;
     this.cam.id = -1;
+    this.pinch = null;
+    this.pts.clear();
     this.joyEl.classList.remove('on');
   }
 
@@ -157,6 +209,8 @@ export class Input extends Emitter<InputEvents> {
     if (k.has('KeyD') || k.has('ArrowRight')) x += 1;
     if (k.has('KeyQ')) this.camYaw += 0.03;
     if (k.has('KeyR')) this.camYaw -= 0.03;
+    if (k.has('Equal') || k.has('NumpadAdd')) this.camZoom += 0.025;
+    if (k.has('Minus') || k.has('NumpadSubtract')) this.camZoom -= 0.025;
     const kl = Math.hypot(x, y);
     if (kl > 0) { x /= kl; y /= kl; }
     let run = k.has('ShiftLeft') || k.has('ShiftRight');

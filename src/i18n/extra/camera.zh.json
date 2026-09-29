@@ -1,0 +1,7 @@
+{
+ "drag to look around · pinch to zoom": "拖动来环顾四周 · 双指缩放",
+ "Camera: closer / face close-up / back": "镜头：拉近 / 脸部特写 / 还原",
+ "Drag on the right half to turn and tilt the camera, and pinch to zoom in on Hamin. Zoomed in, you can go all the way round him. 🎥 goes closer → face close-up → back.": "在屏幕右半边拖动可以转动和倾斜镜头，双指捏合可以拉近看Hamin。拉近后可以绕着他转一整圈。🎥 依次切换：拉近 → 脸部特写 → 还原。",
+ "Drag with the mouse to turn and tilt the camera, scroll to zoom (or Q / R to turn, + / − to zoom). Zoomed in, you can go all the way round Hamin. 🎥 goes closer → face close-up → back, C resets.": "用鼠标拖动可以转动和倾斜镜头，滚轮缩放（也可以用 Q / R 转动，+ / − 缩放）。拉近后可以绕着Hamin转一整圈。🎥 依次切换：拉近 → 脸部特写 → 还原，C 键复位。",
+ "The chibi Hamin (8 looks), the landmark props, the NPCs and the sheep were generated from original prompts with Higgsfield AI (image → 3D) and then optimised and animated for the game. Rooms, UI and icons are original, made in code and hand-drawn SVG. No photos, logos or official assets are used.": "Q版Hamin（8 套造型）、地标道具、NPC 和小羊都是用原创提示词通过 Higgsfield AI（图片 → 3D）生成，再为游戏进行优化和制作动画。房间、界面和图标均为原创，由代码和手绘 SVG 制作。没有使用任何照片、标志或官方素材。"
+}

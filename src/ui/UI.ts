@@ -32,6 +32,7 @@ export class UI {
     actLabel: el('div', 'act-label off'),
     cam: el('button', 'cam-btn', '🎥'),
     joyHint: el('div', 'joy-hint', 'drag here<br>to walk'),
+    camHint: el('div', 'cam-hint', 'drag to look around · pinch to zoom'),
   };
   private trans = el('div', 'trans');
   private transText = el('div', 't-text');
@@ -51,9 +52,9 @@ export class UI {
     h.top.append(h.hearts, h.btns);
     h.bottom.append(h.cam, h.act, h.actLabel);
     h.bottom.style.position = 'fixed';
-    h.cam.setAttribute('aria-label', 'Reset camera');
+    h.cam.setAttribute('aria-label', 'Camera: closer / face close-up / back');
     h.act.setAttribute('aria-label', 'Interact');
-    this.root.append(this.world, h.top, h.place, h.bottom, h.joyHint, this.toasts);
+    this.root.append(this.world, h.top, h.place, h.bottom, h.joyHint, h.camHint, this.toasts);
     this.setHud(false);
 
     // transition overlay
@@ -86,7 +87,7 @@ export class UI {
 
   setHud(v: boolean) {
     this.hudVisible = v;
-    for (const e of [this.hud.top, this.hud.bottom, this.hud.place, this.hud.joyHint]) e.classList.toggle('hidden', !v);
+    for (const e of [this.hud.top, this.hud.bottom, this.hud.place, this.hud.joyHint, this.hud.camHint]) e.classList.toggle('hidden', !v);
   }
   get hudShown() { return this.hudVisible; }
 

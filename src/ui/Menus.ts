@@ -210,10 +210,10 @@ export function openHelp(g: Game) {
   body.innerHTML = touch
     ? `<h3>Moving</h3><p>Drag anywhere on the left half of the screen to walk. Drag far to run.</p>
        <h3>Interacting</h3><p>Tap the big ♡ button when a label pops up: talk, sit, enter doors, play…</p>
-       <h3>Camera</h3><p>Swipe on the right half to turn the camera a little. 🎥 resets it.</p>`
+       <h3>Camera</h3><p>Drag on the right half to turn and tilt the camera, and pinch to zoom in on Hamin. Zoomed in, you can go all the way round him. 🎥 goes closer → face close-up → back.</p>`
     : `<h3>Moving</h3><p>WASD or the arrow keys to walk. Hold Shift to run.</p>
        <h3>Interacting</h3><p>E, Space or Enter to interact (or click ♡). Esc opens the menu.</p>
-       <h3>Camera</h3><p>Q / R turn the camera a little, C resets it.</p>`;
+       <h3>Camera</h3><p>Drag with the mouse to turn and tilt the camera, scroll to zoom (or Q / R to turn, + / − to zoom). Zoomed in, you can go all the way round Hamin. 🎥 goes closer → face close-up → back, C resets.</p>`;
   body.innerHTML += `<h3>Hamin Hearts ♡</h3><p>Earn hearts from mini-games, stickers, NPC requests and chatting each day. Spend them in the 👗 Wardrobe.</p>
     <h3>Mini-games</h3><p>🐶 Dog Chase — pet Bori in the schoolyard<br>🍱 Eating Game — the cafeteria counter<br>💃 Dance & 🎤 Vocal practice — their rooms<br>🌟 Stage show — center stage</p>`;
   g.ui.modal('❓ How to play', body);
@@ -226,7 +226,7 @@ export function openCredits(g: Game) {
   <h3>Made by</h3><p style="text-align:center"><b class="grad-text" style="font-size:18px">mysweethamin</b><br>
   <span class="cred-tags"><span>𝕏 X</span><span>📕 RedNote</span><span>🌐 Weibo</span><span>▶️ YouTube</span></span></p>
   <h3>Development & design</h3><p>Game design, code, UI, world building and writing: a fan tribute made with love by mysweethamin.</p>
-  <h3>Original artwork & assets</h3><p>The chibi Hamin (8 looks) was generated from original prompts with Higgsfield AI (image → rigged 3D) and then optimised and animated for the game. All 3D props, NPCs, rooms and UI are original and built procedurally in code. No photos, logos or official assets are used.</p>
+  <h3>Original artwork & assets</h3><p>The chibi Hamin (8 looks), the landmark props, the NPCs and the sheep were generated from original prompts with Higgsfield AI (image → 3D) and then optimised and animated for the game. Rooms, UI and icons are original, made in code and hand-drawn SVG. No photos, logos or official assets are used.</p>
   <h3>Music & sound</h3><p>All music and sound effects are original and synthesised live in your browser. No copyrighted songs are used.</p>
   <h3>Tools</h3><p>Three.js · TypeScript · Vite · Higgsfield (character generation) · gltf-transform · Nunito font (Google Fonts, OFL)</p>
   <h3>Respect</h3><p>This is a sweet, fictional little world. Everything that happens here is made up for fun ♡ Places like "Sweet Reply High" and "Sweet Sea Beach" are fictional.</p>

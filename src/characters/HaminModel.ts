@@ -374,12 +374,16 @@ if (faceOn > 0.5) {
     } catch { /* keep default */ }
   }
 
-  /** 'neutral' shows the baked Higgsfield face; other expressions are painted over it. */
+  /**
+   * Hamin always shows the baked Higgsfield face: painted-over eyes / mouths looked like a mask on the
+   * textured model, so moods are carried by poses and reaction bubbles. Only the ?ref debug grid paints here.
+   */
   setFace(e: Expression, debug = GRID) {
-    const key = e === 'neutral' && !debug ? 'baked' : e;
+    const key = debug ? e : 'baked';
     if (key === this.shownExpr) return;
     this.shownExpr = key;
     if (key === 'baked') { this.faceU.faceOn.value = 0; return; }
+    this.faceU.faceMap.value = this.faceTex;
     const g = this.faceCanvas.getContext('2d')!;
     g.clearRect(0, 0, 256, 256);
     const A = this.faceAspect;

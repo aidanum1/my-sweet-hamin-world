@@ -1,0 +1,7 @@
+{
+ "drag to look around · pinch to zoom": "ドラッグで見回す・ピンチでズーム",
+ "Camera: closer / face close-up / back": "カメラ：近づく / 顔アップ / もどす",
+ "Drag on the right half to turn and tilt the camera, and pinch to zoom in on Hamin. Zoomed in, you can go all the way round him. 🎥 goes closer → face close-up → back.": "画面の右半分をドラッグするとカメラを回したり傾けたりでき、ピンチでハミンにズームできます。ズームすると彼のまわりをぐるっと一周できます。🎥 で 近づく → 顔アップ → もどす の順に切り替わります。",
+ "Drag with the mouse to turn and tilt the camera, scroll to zoom (or Q / R to turn, + / − to zoom). Zoomed in, you can go all the way round Hamin. 🎥 goes closer → face close-up → back, C resets.": "マウスでドラッグするとカメラを回したり傾けたりでき、ホイールでズームします（Q / R で回転、+ / − でズームも可）。ズームするとハミンのまわりをぐるっと一周できます。🎥 で 近づく → 顔アップ → もどす、C でリセット。",
+ "The chibi Hamin (8 looks), the landmark props, the NPCs and the sheep were generated from original prompts with Higgsfield AI (image → 3D) and then optimised and animated for the game. Rooms, UI and icons are original, made in code and hand-drawn SVG. No photos, logos or official assets are used.": "ちびハミン（8つのルック）、ランドマークの小物、NPC、ひつじは、オリジナルのプロンプトから Higgsfield AI（画像 → 3D）で生成し、ゲーム用に最適化・アニメーションしました。部屋、UI、アイコンはコードと手描きSVGで作ったオリジナルです。写真・ロゴ・公式素材は一切使っていません。"
+}

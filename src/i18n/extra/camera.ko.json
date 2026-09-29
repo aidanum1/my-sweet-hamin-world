@@ -1,0 +1,7 @@
+{
+ "drag to look around · pinch to zoom": "드래그해서 둘러보기 · 핀치로 확대",
+ "Camera: closer / face close-up / back": "카메라: 가까이 / 얼굴 클로즈업 / 원래대로",
+ "Drag on the right half to turn and tilt the camera, and pinch to zoom in on Hamin. Zoomed in, you can go all the way round him. 🎥 goes closer → face close-up → back.": "화면 오른쪽 절반을 드래그하면 카메라를 돌리거나 기울일 수 있고, 핀치로 하민을 확대할 수 있어요. 확대하면 하민 주위를 한 바퀴 돌 수 있어요. 🎥 는 가까이 → 얼굴 클로즈업 → 원래대로 순서로 바뀌어요.",
+ "Drag with the mouse to turn and tilt the camera, scroll to zoom (or Q / R to turn, + / − to zoom). Zoomed in, you can go all the way round Hamin. 🎥 goes closer → face close-up → back, C resets.": "마우스로 드래그하면 카메라를 돌리거나 기울일 수 있고, 휠로 확대/축소해요 (Q / R 로 회전, + / − 로 확대도 가능). 확대하면 하민 주위를 한 바퀴 돌 수 있어요. 🎥 는 가까이 → 얼굴 클로즈업 → 원래대로, C 는 초기화예요.",
+ "The chibi Hamin (8 looks), the landmark props, the NPCs and the sheep were generated from original prompts with Higgsfield AI (image → 3D) and then optimised and animated for the game. Rooms, UI and icons are original, made in code and hand-drawn SVG. No photos, logos or official assets are used.": "치비 하민(8가지 룩), 랜드마크 소품, NPC와 양들은 오리지널 프롬프트로 Higgsfield AI(이미지 → 3D)를 사용해 생성한 뒤 게임에 맞게 최적화하고 애니메이션을 넣었어요. 방, UI, 아이콘은 코드와 손그림 SVG로 만든 오리지널이에요. 사진, 로고, 공식 자료는 전혀 사용하지 않았어요."
+}

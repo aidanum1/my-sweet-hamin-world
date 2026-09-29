@@ -37,7 +37,9 @@ body.letterbox { background: radial-gradient(circle at 20% 20%, #ffe3ea 0 18%, t
 body.letterbox #app { border-radius: 18px; box-shadow: 0 10px 40px rgba(160, 150, 210, .45), 0 0 0 5px #fff; }
 #game { position: absolute; inset: 0; display: block; outline: none; }
 #ui { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
-#ui > * { pointer-events: auto; }
+/* zero-specificity default, so decorative overlays that declare pointer-events:none (joystick hint, top HUD strip…)
+   really let touches through to the game canvas */
+:where(#ui) > * { pointer-events: auto; }
 #ui .passthrough, #ui .passthrough * { pointer-events: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; -webkit-appearance: none; }
 .hidden { display: none !important; }
@@ -379,3 +381,8 @@ body.lang-ko .logo .l2, body.lang-ja .logo .l2, body.lang-zh .logo .l2 { font-fa
 /* CJK labels may break between any two characters: keep button labels whole (flex rows would squeeze them to 1 char) */
 button { word-break: keep-all; }
 .title-btns .row .candy { white-space: nowrap; flex: 1 1 auto; }
+/* touch camera hint (right side), fades away once the player has turned or zoomed the camera */
+.cam-hint { position: fixed; right: calc(118px + var(--sar)); bottom: calc(44px + var(--sab)); max-width: 150px; color: #fff; font-size: 12px;
+  font-weight: 800; text-align: center; pointer-events: none; text-shadow: 0 1px 3px rgba(255, 122, 147, .8); transition: opacity .6s; }
+.cam-hint.used { opacity: 0; }
+body:not(.touch) .cam-hint { display: none; }

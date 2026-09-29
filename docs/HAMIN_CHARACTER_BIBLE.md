@@ -36,11 +36,14 @@ Live reference sheets render from the in-game model: `?ref=turn` (front/side/bac
   with a dark belt, and chunky dark loafers with white socks. The hair is tousled black with a few locks flicking up.
   The "Sweet Reply Uniform" (cream knit vest + powder-blue tie) is the free School outfit.
 
-## Face decal expressions
+## Face and expressions
 
-`neutral`, `smile` (eye-smile), `happy` (open smile), `blink`, `shy` (blush plus looking aside), `surprised`,
-`scared` (wobbly mouth and a sweat drop), `eat` (closed happy eyes and a chewing mouth), `sing` (closed eyes, "o" mouth),
-`tired` (droopy lids), `wink`, `determined`.
+The Higgsfield models always show their own baked face. Painting eyes and mouths over the textured face (a canvas
+decal, and later an edit of the model's own face texture) looked like a mask and cut into the fringe, so it was
+removed. Moods are carried by the animation set below (wave, happy hop, shy sway, surprised jump…) and by reaction
+bubbles and particles (♡, ♪, sweat drops). The procedural expression names (`smile`, `happy`, `blink`, `shy`,
+`surprised`, `scared`, `eat`, `sing`, `tired`, `wink`, `determined`, `love`) still drive the 2D portraits and the
+?ref debug grid. True 3D expressions would need extra Higgsfield head variants (≈35 credits each, rigged).
 
 ## Animation set (procedural, blended)
 

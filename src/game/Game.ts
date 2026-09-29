@@ -59,7 +59,21 @@ export class Game {
     // HUD wiring
     const h = this.ui.hud;
     h.act.onclick = () => this.onAction();
-    h.cam.onclick = () => { this.cam.reset(); this.audio.sfx('tap'); };
+    // camera button: dollhouse view → closer → face close-up → back. For the close-up the camera stays on its
+    // (open) side and Hamin turns round to face it with a little wave, so walls / props in front of him never block it.
+    h.cam.onclick = () => {
+      const z = this.cam.zoom;
+      if (z < 0.3) this.cam.setZoom(0.55);
+      else if (z < 0.85) {
+        this.cam.setZoom(1);
+        const a = this.player.currentAction;
+        if (this.mode === 'explore' && (!a || a === 'idle2')) {
+          this.setFacing(this.cam.yaw);
+          this.player.play('wave');
+        }
+      } else this.cam.reset();
+      this.audio.sfx('tap');
+    };
     h.menu.onclick = () => this.openMenu();
     h.map.onclick = () => this.canOpenUI() && (this.audio.sfx('select'), openMap(this));
     h.wardrobe.onclick = () => this.openWardrobe();
@@ -175,6 +189,8 @@ export class Game {
       this.cam.set(sc.cam);
       this.cam.override = null;
       this.cam.reset();
+      this.cam.bounds = sc.explore ? sc.bounds : null;
+      this.cam.colliders = sc.explore ? sc.colliders : [];
       const sp = sc.spawns[spawn] ?? sc.spawns.default;
       this.player.stop();
       this.player.moveSpeed = 0;
@@ -276,6 +292,15 @@ export class Game {
         this.cam.addYaw(this.input.camYaw);
         this.input.camYaw = 0;
       }
+      if (this.input.camPitch) {
+        this.cam.addPitch(this.input.camPitch);
+        this.input.camPitch = 0;
+      }
+      if (this.input.camZoom) {
+        this.cam.addZoom(this.input.camZoom);
+        this.input.camZoom = 0;
+      }
+      if (this.cam.zoom > 0.05 || Math.abs(this.cam.yawOffset) > 0.3) this.ui.hud.camHint.classList.add('used');
       if (sc.explore) this.cam.target.copy(this.player.root.position);
       this.cam.update(dt);
     }
