@@ -26,6 +26,9 @@ import { detectLang, Lang, setLang, startDomTranslation, tr } from '../i18n/i18n
 export type Mode = 'boot' | 'title' | 'explore' | 'busy';
 
 /** Central game context shared by every scene and mini-game. */
+
+/** Player animations that walking interrupts (interactions lock input while they run, so timed rides are safe). */
+const INTERRUPTIBLE = new Set(['idle2', 'sit', 'sleep', 'dance', 'sing', 'pose', 'wave', 'happy', 'shy']);
 export class Game {
   save = new SaveSystem();
   audio = new AudioSystem();
@@ -319,6 +322,12 @@ export class Game {
     const mx = rx * inp.move.x + fx * inp.move.y;
     const mz = rz * inp.move.x + fz * inp.move.y;
     const mag = Math.min(1, Math.hypot(inp.move.x, inp.move.y));
+    // looping "resting" animations left over from an interaction (sitting at a desk or on a bench, dancing to a song,
+    // humming along…) end as soon as the player walks — otherwise Hamin stayed stuck in them for good
+    if (mag > 0.05 && p.currentAction && INTERRUPTIBLE.has(p.currentAction)) {
+      p.stop();
+      p.overrideExpression(null);
+    }
     const busy = !!p.currentAction && p.currentAction !== 'idle2';
     const speed = busy ? 0 : (inp.runHeld ? 5.2 : 3.1) * mag;
     const tx = mag > 0.01 ? (mx / (Math.hypot(mx, mz) || 1)) * speed : 0;
@@ -332,7 +341,6 @@ export class Game {
     resolve(pos, 0.38, sc.colliders, sc.bounds);
     const sp = Math.hypot(this.vel.x, this.vel.z);
     if (mag > 0.05 && !busy) {
-      if (p.currentAction === 'idle2' || p.currentAction === 'sit' || p.currentAction === 'sleep') p.stop();
       const target = Math.atan2(mx, mz);
       const before = this.facing;
       this.facing = dampAngle(this.facing, target, 12, dt);
