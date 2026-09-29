@@ -16,7 +16,7 @@ import { NpcQuest, NPCS } from '../npcs/npcData';
 import { preloadNpcModels, extraNpcIds } from '../npcs/npcModels';
 import { preloadIconImages } from '../ui/icons';
 import { dampAngle, dampK, isTouch, pick, todayKey, angleDiff, clamp } from '../utils/math';
-import { getItem, getLook, OutfitState } from '../characters/outfits';
+import { DEFAULT_OUTFIT, getItem, getLook, OutfitState } from '../characters/outfits';
 import { HaminModel, loadHaminGltf } from '../characters/HaminModel';
 import { CHARMS, STICKERS } from './collectibles';
 import { openMenu, openMap } from '../ui/Menus';
@@ -103,9 +103,12 @@ export class Game {
   }
 
   private modelKey = '';
-  /** Apply an outfit: loads the Higgsfield look model (cached) or the modular body with the generated head. */
-  async dressHamin(o: OutfitState): Promise<void> {
-    const look = o.look ? getLook(o.look) : undefined;
+  /**
+   * Apply an outfit: loads the Higgsfield look model (cached). Old Mix & Match saves wear the signature denim look;
+   * the modular body with the generated head is only a fallback if a look fails to load.
+   */
+  async dressHamin(o: OutfitState, fallback = false): Promise<void> {
+    const look = fallback ? undefined : getLook(o.look || DEFAULT_OUTFIT.look);
     const file = look?.file ?? 'models/hamin.glb';
     const key = file + '|' + (look ? 'full' : 'head');
     try {
@@ -116,7 +119,7 @@ export class Game {
       }
     } catch (e) {
       console.warn('look model failed to load, using modular body', e);
-      if (look) return this.dressHamin({ ...o, look: '' });
+      if (!fallback) return this.dressHamin(o, true);
     }
     this.player.setOutfit(o);
   }

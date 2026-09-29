@@ -39,6 +39,8 @@ const CSS = `
 .dc-verdict { position: absolute; left: 50%; bottom: calc(10px + var(--sab)); transform: translateX(-50%); width: min(96cqw, 520px); max-height: 62cqh;
   display: flex; flex-direction: column; gap: 8px; padding: 12px 14px 14px; overflow-y: auto; animation: dcPop .45s var(--bounce); }
 @container (orientation: landscape) {
+  /* the wardrobe panel fills the right side: keep Coco's theme card in the free space on the left */
+  .dc-hud { width: min(360px, calc(100cqw - min(52cqw, 470px) - 100px)); }
   .dc-verdict { left: auto; transform: none; right: calc(14px + var(--sar)); top: calc(14px + var(--sat)); bottom: calc(14px + var(--sab)); width: min(50cqw, 430px); max-height: none; }
 }
 @keyframes dcPop { from { opacity: 0; scale: .85 } }

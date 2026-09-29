@@ -74,7 +74,8 @@ export function sanitize(raw: any): SaveData {
   d.owned = Array.from(new Set([...FREE_ITEMS, ...strArr(raw.owned).filter(validId)]));
   if (raw.outfit && typeof raw.outfit === 'object') {
     const lk = raw.outfit.look;
-    if (typeof lk === 'string' && (lk === '' || (getLook(lk) && d.owned.includes(lookItemId(lk))))) d.outfit.look = lk;
+    // '' (the removed Mix & Match body) falls back to the default signature look
+    if (typeof lk === 'string' && getLook(lk) && d.owned.includes(lookItemId(lk))) d.outfit.look = lk;
     for (const k of Object.keys(d.outfit) as (keyof OutfitState)[]) {
       if (k === 'look') continue;
       const v = raw.outfit[k];

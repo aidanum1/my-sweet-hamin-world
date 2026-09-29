@@ -293,8 +293,26 @@ body.touch .prompt kbd { display: none; }
 /* wardrobe (Dress Up) */
 .wd-panel { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(10px + var(--sab)); width: min(96cqw, 620px);
   max-height: 46cqh; display: flex; flex-direction: column; padding: 8px 4px 10px; animation: dlgIn .35s var(--bounce); }
-@container (orientation: landscape) and (min-width: 760px) {
-  .wd-panel { left: auto; right: calc(14px + var(--sar)); transform: none; top: calc(76px + var(--sat)); bottom: calc(14px + var(--sab)); width: min(46cqw, 460px); max-height: none; }
+/* landscape (every phone held sideways, and desktop): a full-height panel on the right, Hamin big on the left */
+@container (orientation: landscape) {
+  .wd-panel { left: auto; right: calc(10px + var(--sar)); transform: none; top: calc(10px + var(--sat)); bottom: calc(10px + var(--sab));
+    width: min(52cqw, 470px); max-height: none; }
+  .mg.wardrobe .mg-top { right: calc(min(52cqw, 470px) + 24px + var(--sar)); }
+}
+.wd-rot { position: absolute; left: calc(12px + var(--sal)); bottom: calc(12px + var(--sab)); display: flex; gap: 8px; }
+/* short landscape phones: compact tabs and cards so several rows of clothes fit */
+@container (orientation: landscape) and (max-height: 520px) {
+  .wd-panel { padding: 6px 2px 8px; }
+  .wd-panel .tabs { padding: 2px 10px 4px; gap: 4px; }
+  .wd-panel .tab { font-size: 12px; padding: 5px 10px; }
+  .wd-grid { grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 6px; padding: 6px 10px; }
+  .wd-card { padding: 6px 3px 5px; border-radius: 12px; }
+  .wd-card .e { font-size: 24px; }
+  .wd-card b { font-size: 11px; }
+  .wd-card small { font-size: 9px; }
+  .wd-actions { padding: 4px 10px 0; gap: 6px; }
+  .wd-actions .candy { font-size: 13px; padding: 7px 12px; }
+  .wd-rot .icon-btn { width: 40px; height: 40px; }
 }
 .wd-sub { padding-top: 0; }
 .wd-sub .tab { font-size: 13px; padding: 6px 12px; }

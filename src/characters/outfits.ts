@@ -19,7 +19,7 @@ export interface Item {
   top?: TopData; bottom?: BottomData; shoes?: ShoeData; acc?: AccData;
 }
 
-/** `look` = a full Higgsfield-generated 3D look ('' = Mix & Match: modular pieces under the generated head). */
+/** `look` = the full Higgsfield-generated 3D look Hamin wears (top/bottom/shoes describe it for Coco's judging). */
 export interface OutfitState { look: string; top: string; bottom: string; shoes: string; head: string; face: string; extra: string }
 
 /** Canonical signature look (user reference photo): light denim set, white shirt, loose polka-dot tie, dark loafers. */

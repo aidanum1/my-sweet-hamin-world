@@ -17,10 +17,7 @@ import {
 import { injectChallengeStyles } from './challengeStyles';
 import { buildRunway, COCO_POS, judgeCorner, makeCoco, RUNWAY_END_Z } from './challengeProps';
 
-type Tab = 'looks' | 'mix' | 'acc';
-const MIX_SLOTS: { slot: Slot; label: string }[] = [
-  { slot: 'top', label: '👕 Tops' }, { slot: 'bottom', label: '👖 Bottoms' }, { slot: 'shoes', label: '👟 Shoes' },
-];
+type Tab = 'looks' | 'acc';
 const ACC_SLOTS: { slot: Slot; label: string }[] = [
   { slot: 'head', label: '🎀 Head' }, { slot: 'face', label: '👓 Face' }, { slot: 'extra', label: '👜 Extras' },
 ];
@@ -38,8 +35,8 @@ const GREETINGS = [
 
 /**
  * MINI GAME 2 — Dress Up Hamin.
- * Full looks are Higgsfield-generated 3D models; "Mix & Match" builds outfits from modular pieces under the
- * generated head; accessories attach to either. Tap = preview, buy with ♡, drag to rotate, ✓ to save.
+ * Looks are the Higgsfield-generated 3D outfits (the old "Mix & Match" of hand-built pieces was removed: it looked
+ * cheap next to them); accessories attach on top. Tap = preview, buy with ♡, drag to rotate, ✓ to save.
  * ✨ Fashion Challenge: Coco the cat stylist gives a theme, you dress Hamin from a free "rental rack" against the
  * clock, then he walks a pop-out runway and Coco scores the look 1–5★ (see challenges.ts).
  */
@@ -135,7 +132,7 @@ export default class DressUpScene extends GameScene {
     injectChallengeStyles();
     this.saved = { ...g.save.data.outfit };
     this.preview = { ...this.saved };
-    this.tab = this.preview.look ? 'looks' : 'mix';
+    this.tab = 'looks';
     g.player.root.position.set(0, 0.35, 0);
     g.player.root.rotation.y = 0;
     g.player.play('wave');
@@ -168,11 +165,19 @@ export default class DressUpScene extends GameScene {
   private onResize = () => { if (!this.chal || this.chal.mode === 'play') this.frameCamera(); };
 
   private frameCamera() {
-    const portrait = innerHeight > innerWidth;
-    // keep Hamin in the upper part of the screen above the wardrobe panel
-    this.game.cam.override = portrait
-      ? { pos: new THREE.Vector3(0, 2.2, 7.4), look: new THREE.Vector3(0, 0.55, 0), k: 5, fov: 38 }
-      : { pos: new THREE.Vector3(-1.6, 1.9, 6.2), look: new THREE.Vector3(0.9, 1.25, 0), k: 5, fov: 36 };
+    const W = innerWidth, H = innerHeight;
+    if (H > W) {
+      // portrait: Hamin in the upper part of the screen above the wardrobe panel
+      this.game.cam.override = { pos: new THREE.Vector3(0, 2.2, 7.4), look: new THREE.Vector3(0, 0.55, 0), k: 5, fov: 38 };
+      return;
+    }
+    // landscape: the panel fills the right side (see .wd-panel), so centre Hamin, full body, in the space left of it
+    const fov = 36, d = 5.6;
+    const panel = Math.min(W * 0.52, 470) + 24;
+    const ndcX = ((W - panel) / 2 / W) * 2 - 1;
+    const halfW = Math.tan(THREE.MathUtils.degToRad(fov / 2)) * (W / H) * d;
+    const x = -ndcX * halfW;
+    this.game.cam.override = { pos: new THREE.Vector3(x, 1.85, d), look: new THREE.Vector3(x, 1.4, 0), k: 5, fov };
   }
 
   // ------------------------------------------------------------------ UI
@@ -196,8 +201,7 @@ export default class DressUpScene extends GameScene {
     back.onclick = () => (this.chal ? this.quitChallenge() : this.leave());
     const hearts = el('div', 'mg-pill', `♡ ${this.game.save.data.hearts}`);
     hearts.id = 'wd-hearts';
-    const rot = el('div', '');
-    rot.style.cssText = 'display:flex;gap:8px';
+    const rot = el('div', 'wd-rot');
     const rl = el('button', 'icon-btn', '⟲');
     const rr = el('button', 'icon-btn', '⟳');
     rl.onclick = () => (this.turn -= Math.PI / 4);
@@ -212,12 +216,12 @@ export default class DressUpScene extends GameScene {
       chalBtn.onclick = () => this.openPicker();
       left.append(back, hearts, chalBtn);
     }
-    top.append(left, rot);
-    L.appendChild(top);
+    top.append(left);
+    L.append(top, rot);
 
     const panel = el('div', 'wd-panel paper');
     const tabs = el('div', 'tabs');
-    const tabDefs: [Tab, string][] = [['looks', '✨ Looks'], ['mix', '🧩 Mix & Match'], ['acc', '🎀 Accessories']];
+    const tabDefs: [Tab, string][] = [['looks', '✨ Looks'], ['acc', '🎀 Accessories']];
     for (const [t, label] of tabDefs) {
       const b = el('button', 'tab' + (t === this.tab ? ' on' : ''), label);
       b.onclick = () => {
@@ -231,7 +235,7 @@ export default class DressUpScene extends GameScene {
     panel.appendChild(tabs);
     if (this.tab !== 'looks') {
       const subs = el('div', 'tabs wd-sub');
-      for (const s of this.tab === 'mix' ? MIX_SLOTS : ACC_SLOTS) {
+      for (const s of ACC_SLOTS) {
         const b = el('button', 'tab' + (s.slot === this.sub ? ' on' : ''), s.label);
         b.onclick = () => { this.game.audio.sfx('tap'); this.sub = s.slot; this.buildUI(); };
         subs.appendChild(b);
@@ -245,10 +249,6 @@ export default class DressUpScene extends GameScene {
         const theme = THEMES.find((t) => t.id === l.theme);
         this.card(grid, lookItemId(l.id), l.emoji, l.name, theme ? `${theme.emoji} ${theme.label}` : '', l.price, this.preview.look === l.id, () => this.previewLook(l.id));
       }
-    } else if (this.tab === 'mix') {
-      const note = el('div', 'wd-note', this.preview.look ? '🧩 Mixing pieces switches to the modular body (with Hamin’s real 3D head).' : '');
-      if (this.preview.look) grid.appendChild(note);
-      for (const it of ITEMS.filter((i) => i.slot === this.sub)) this.itemCard(grid, it);
     } else {
       this.card(grid, '', '🚫', 'None', '', 0, !this.preview[this.sub as 'head'], () => this.previewItem(this.sub, ''));
       for (const it of ITEMS.filter((i) => i.slot === this.sub)) this.itemCard(grid, it);
@@ -272,13 +272,16 @@ export default class DressUpScene extends GameScene {
     const cost = locked.reduce((a, id) => a + this.price(id), 0);
     const reset = el('button', 'candy small', '↺ Undo');
     reset.onclick = () => { this.game.audio.sfx('back'); this.apply({ ...this.saved }); };
-    const buy = el('button', 'candy small blue', `Unlock all · ♡ ${cost}`);
-    buy.classList.toggle('hidden', !locked.length);
-    buy.onclick = () => this.buy(locked, cost);
-    const save = el('button', 'candy primary', locked.length ? '🔒 Unlock to save' : '✓ Save look');
-    (save as HTMLButtonElement).disabled = locked.length > 0;
-    save.onclick = () => this.saveLook();
-    act.append(reset, buy, save);
+    // one main button: unlock what's being tried on, or save the look (keeps the row on one line on phones)
+    if (locked.length) {
+      const buy = el('button', 'candy primary', `Unlock all · ♡ ${cost}`);
+      buy.onclick = () => this.buy(locked, cost);
+      act.append(reset, buy);
+    } else {
+      const save = el('button', 'candy primary', '✓ Save look');
+      save.onclick = () => this.saveLook();
+      act.append(reset, save);
+    }
     panel.appendChild(act);
     L.appendChild(panel);
     this.loadingEl = el('div', 'wd-loading hidden', '✨ changing clothes…');
@@ -328,9 +331,7 @@ export default class DressUpScene extends GameScene {
   }
 
   private previewItem(slot: Slot, id: string) {
-    const o = { ...this.preview, [slot]: id } as OutfitState;
-    if (slot === 'top' || slot === 'bottom' || slot === 'shoes') o.look = '';
-    this.apply(o);
+    this.apply({ ...this.preview, [slot]: id } as OutfitState);
   }
 
   private async apply(o: OutfitState) {
