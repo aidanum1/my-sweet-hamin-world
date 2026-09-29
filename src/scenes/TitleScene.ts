@@ -141,6 +141,9 @@ export default class TitleScene extends GameScene {
     const credits = el('button', 'candy mint small', '💌 Credits');
     row.append(settings, credits);
     const fine = el('div', 'fine', 'Unofficial fan-made game by mysweethamin ♡ · no account needed · progress saves on this device');
+    const ver = el('span', 'build', ` · ${__BUILD__}`);
+    ver.setAttribute('data-no-tr', '');
+    fine.appendChild(ver);
     btns.append(play, row, fine);
     // labelled language chip (globe + current language's own name) so it's easy to spot in any language
     const cur = LANGS.find((l) => l.id === getLang()) ?? LANGS[0];
